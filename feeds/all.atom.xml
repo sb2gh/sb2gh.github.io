@@ -5,6 +5,7 @@
 mkvirtualenv venv-pel
 source ~/.virtualenvs/venv-pel/bin/activate
 pip install pelican, markdown, ghp-import&lt;/p&gt;
+&lt;p&gt;Elegant uses &lt;a href="http://ethanschoonover.com/solarized"&gt;Solarized&lt;/a&gt; theme for syntax&lt;/p&gt;
 &lt;p&gt;:::python
 pelican-quickstart&lt;/p&gt;
 &lt;blockquote&gt;
