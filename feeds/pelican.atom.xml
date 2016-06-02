@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/pelican.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-21T23:00:00-04:00</updated><entry><title>Create Blog with Pelican hosted on github user page</title><link href="http://sb2gh.github.io/slg.html" rel="alternate"></link><published>2016-05-21T23:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-20:slg.html</id><summary type="html">&lt;h2&gt;Create static blog with Pelican hosted on github user page&lt;/h2&gt;
+&lt;p&gt;:::python
+mkvirtualenv venv-pel
+source ~/.virtualenvs/venv-pel/bin/activate
+pip install pelican, markdown, ghp-import&lt;/p&gt;
+&lt;p&gt;:::python
+pelican-quickstart&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Where do you want to create your new web site? [.] 
+What will be the title of this web site? blog depuzzled
+Who will be the author of this web site? depuzzled
+What will be the default language of this web site? [en] 
+Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) 
+What is your URL prefix? (see above example; no trailing slash) http://sb2gh.github.io
+Do you want to enable article pagination? (Y/n) 
+How many articles per page do you want? [10] 
+What is your time zone? [Europe/Paris] US/Eastern
+Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
+Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) 
+Do you want to upload your website using FTP? (y/N) 
+Do you want to upload your website using SSH? (y/N) 
+Do you want to upload your website using Dropbox? (y/N) 
+Do you want to upload your website using S3? (y/N) 
+Do you want to upload your website using Rackspace Cloud Files? (y/N) 
+Do you want to upload your website using GitHub Pages? (y/N) y 
+Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /Users/bm/webblog&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;::python
+ make devserver
+. develop_server.sh stop&lt;/p&gt;
+&lt;p&gt;::python
+make github&lt;/p&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="font-awesome"></category><category term="github"></category></entry></feed>
