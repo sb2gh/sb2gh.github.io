@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="depuzzled" />
+<meta name="copyright" content="depuzzled" />
+
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="pelican, blog, jinja2, bootstrap, pelican-theme, font-awesome, github, Pelican, pelican, blog" />
+
+<meta property="og:title" content="Create Blog with Pelican hosted on github user page "/>
+<meta property="og:url" content="/slg.html" />
+<meta property="og:description" content="Create a simple static blog with Pelican hosted on github user page" />
+<meta property="og:site_name" content="depuzzled blog" />
+<meta property="og:article:author" content="depuzzled" />
+<meta property="og:article:published_time" content="2016-05-20T23:20:00-04:00" />
+<meta property="" content="2016-05-21T23:00:00-04:00" />
+<meta name="twitter:title" content="Create Blog with Pelican hosted on github user page ">
+<meta name="twitter:description" content="Create a simple static blog with Pelican hosted on github user page">
+
+<title>Create Blog with Pelican hosted on github user page  · depuzzled blog
+</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/theme/css/bootstrap-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><span class=site-name>depuzzled blog</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="">Home</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li>
+                    <li>
+                    <form class="navbar-form" role="search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input">
+                    </form>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+<article>
+<div class="row">
+    <header class="page-header col-md-10 col-md-offset-2">
+    <h1><a href="/slg.html"> Create Blog with Pelican hosted on github user page  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+        <div class="col-md-8 col-md-offset-2 el-article-content">
+
+            
+            <h2>Create static blog with Pelican hosted on github user page</h2>
+<p>:::python
+mkvirtualenv venv-pel
+source ~/.virtualenvs/venv-pel/bin/activate
+pip install pelican, markdown, ghp-import</p>
+<p>:::python
+pelican-quickstart</p>
+<blockquote>
+<p>Where do you want to create your new web site? [.] 
+What will be the title of this web site? blog depuzzled
+Who will be the author of this web site? depuzzled
+What will be the default language of this web site? [en] 
+Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) 
+What is your URL prefix? (see above example; no trailing slash) http://sb2gh.github.io
+Do you want to enable article pagination? (Y/n) 
+How many articles per page do you want? [10] 
+What is your time zone? [Europe/Paris] US/Eastern
+Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
+Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) 
+Do you want to upload your website using FTP? (y/N) 
+Do you want to upload your website using SSH? (y/N) 
+Do you want to upload your website using Dropbox? (y/N) 
+Do you want to upload your website using S3? (y/N) 
+Do you want to upload your website using Rackspace Cloud Files? (y/N) 
+Do you want to upload your website using GitHub Pages? (y/N) y 
+Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /Users/bm/webblog</p>
+</blockquote>
+<p>::python
+ make devserver
+. develop_server.sh stop</p>
+<p>::python
+make github</p>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-05-20T23:20:00-04:00">May 20, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-05-21T23:00:00-04:00">May 21, 2016</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#pelican-ref">Pelican</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags.html#blog-ref">blog
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#bootstrap-ref">bootstrap
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#font-awesome-ref">font-awesome
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#github-ref">github
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#jinja2-ref">jinja2
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#pelican-ref">pelican
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#pelican-theme-ref">pelican-theme
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+            </div>
+        </div>
+    </div>
+<footer>
+    <div class="container">
+    
+
+
+
+        <div class=col-md-12>
+            Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a>
+        </div>
+
+    </div>
+</footer>    <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+function validateForm(query)
+{
+    return (query.length > 0);
+}
+</script>
+
+    
+</body>
+<!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
