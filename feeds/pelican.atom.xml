@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/pelican.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-21T23:00:00-04:00</updated><entry><title>Create Blog with Pelican hosted on github user page</title><link href="http://sb2gh.github.io/slg.html" rel="alternate"></link><published>2016-05-21T23:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-20:slg.html</id><summary type="html">&lt;h2&gt;Create static blog with Pelican hosted on github user page&lt;/h2&gt;
+&lt;h1&gt;!c&lt;/h1&gt;
 &lt;p&gt;:::python
 mkvirtualenv venv-pel
 source ~/.virtualenvs/venv-pel/bin/activate
