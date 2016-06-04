@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Baskerville, Garamond, Georgia, 'DejaVu Serif', 'Times New Roman', Times, Serif;
+    font-family: monospace, monospace, monospace, monospace, monospace, monospace, monospace; /* Baskerville, Garamond, Georgia, 'DejaVu Serif', 'Times New Roman', Times, Serif;*/
     font-weight: normal;
 }
 h1 small, h1 a, h1 a:hover,
@@ -146,7 +146,7 @@ article div.article-content ul:not(.articles-timeline) a:hover {
     text-shadow: none;
 }
 .article-content, div.recent-posts p {
-    font: 1.2em/1.6em 'PT Serif', Georgia, 'Times New Roman', Times, Serif;
+    font: 1.2em/1.6em verdana, verdana, verdana, verdana, verdana; /* 'PT Serif', Georgia, 'Times New Roman', Times, Serif;*/
     text-align: justify;
 }
 .article-content {
