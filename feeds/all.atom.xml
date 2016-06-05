@@ -136,7 +136,9 @@ Go to directory of current venv: &lt;code&gt;cdvirtualenv&lt;/code&gt;
 Show contents of site-packages directory: &lt;code&gt;lssitepackages&lt;/code&gt;
 If install from requirements to continue if a package fails: 
 &lt;code&gt;cat requirements.txt | while read PACKAGE; do pip install "$PACKAGE"; done&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Reference:
-&lt;a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/"&gt;http://docs.python-guide.org/en/latest/dev/virtualenvs/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/"&gt;http://docs.python-guide.org/en/latest/dev/virtualenvs/&lt;/a&gt;
+&lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;https://virtualenvwrapper.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry></feed>
