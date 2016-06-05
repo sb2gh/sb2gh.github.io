@@ -60,8 +60,10 @@ Done. Your new project is available at /Users/bm/webblog
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="adding-theme-and-plugins"&gt;Adding Theme and Plugins&lt;a class="headerlink" href="#adding-theme-and-plugins" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We can choose the default theme of pelican or pick one that is available at &lt;a href="http://www.pelicanthemes.com"&gt;http://www.pelicanthemes.com&lt;/a&gt;.  In this post, we are using the theme named 'Elegant'.  We need to download the theme that we want use and put it in a folder named 'themes' at the root of our blog.&lt;br/&gt;
-We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: &lt;a href="https://github.com/getpelican/pelican-plugins.git"&gt;https://github.com/getpelican/pelican-plugins.git&lt;/a&gt;.&lt;br/&gt;
-Once the theme and plugins are installed at the root of our blog, we need to edit the pelicanconf.py file to add the following information:&lt;/p&gt;
+&lt;br&gt;
+We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: &lt;a href="https://github.com/getpelican/pelican-plugins.git"&gt;https://github.com/getpelican/pelican-plugins.git&lt;/a&gt;.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.&lt;br/&gt;
+&lt;br&gt;
+Once the theme and plugins are installed at the root of our blog, we need to edit the pelicanconf.py file to add the following information:&lt;/br&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -78,7 +80,17 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;p&gt;&lt;/p&gt;
-&lt;p&gt;We can now generate the output directory and check out blog at: localhost:8000&lt;/p&gt;
+&lt;p&gt;We can now generate the output directory and check out blog at: localhost:8000. The command &lt;code&gt;make devserver&lt;/code&gt; will generate the static blog in the output directory. The command &lt;code&gt;. develop_server.sh stop&lt;/code&gt; will stop the server.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ make devserver
 (venv-pel) bm@Work ~/webbloggh -  $ . develop_server.sh stop
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="font-awesome"></category><category term="github"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="adding-comments-through-disqus"&gt;Adding comments through DISQUS&lt;a class="headerlink" href="#adding-comments-through-disqus" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To add comment capabilities to our blog, we can register with disqus.  Make sure you fill the website url - in this case: blog.depuzzled.com.  We call the website short name: blogdepuzzled.
+To test locally, we need to make sure that 2 variables are properly set in pelicanconf.py. SITEURL must be set such as &lt;code&gt;SITEURL = 'http://localhost:8000'&lt;/code&gt; and DISQUS_SITENAME such that &lt;code&gt;DISQUS_SITENAME = "blogdepuzzled"&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="hosting-on-github-user-pages"&gt;Hosting on github user pages&lt;a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: &lt;code&gt;username.github.io&lt;/code&gt; where username is our github username.  On our local machine and at the root of our blog, we create a git repository (&lt;code&gt;git init&lt;/code&gt;), all the files (&lt;code&gt;git add -A&lt;/code&gt;) and push them to our github account by using the pelican command: &lt;code&gt;make github&lt;/code&gt;.&lt;br/&gt;
+We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;
+&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="pelican-plugins"></category><category term="github"></category></entry></feed>

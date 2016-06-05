@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="pelican, blog, jinja2, bootstrap, pelican-theme, font-awesome, github, Pelican, pelican, blog" />
+<meta name="keywords" content="pelican, blog, jinja2, bootstrap, pelican-theme, pelican-plugins, github, Pelican, pelican, blog" />
 
 <meta property="og:title" content="Creating a Static Blog with Pelican and hosting it on github user pages "/>
 <meta property="og:url" content="http://sb2gh.github.io/slg.html" />
@@ -83,6 +83,8 @@
 <li><a href="#environment-set-up">Environment set-up</a></li>
 <li><a href="#create-the-blog-with-pelican">Create the blog with Pelican</a></li>
 <li><a href="#adding-theme-and-plugins">Adding Theme and Plugins</a></li>
+<li><a href="#adding-comments-through-disqus">Adding comments through DISQUS</a></li>
+<li><a href="#hosting-on-github-user-pages">Hosting on github user pages</a></li>
 </ul>
 </div>
         </nav>
@@ -151,8 +153,10 @@ Done. Your new project is available at /Users/bm/webblog
 <p><br/></p>
 <h2 id="adding-theme-and-plugins">Adding Theme and Plugins<a class="headerlink" href="#adding-theme-and-plugins" title="Permanent link">¶</a></h2>
 <p>We can choose the default theme of pelican or pick one that is available at <a href="http://www.pelicanthemes.com">http://www.pelicanthemes.com</a>.  In this post, we are using the theme named 'Elegant'.  We need to download the theme that we want use and put it in a folder named 'themes' at the root of our blog.<br/>
-We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: <a href="https://github.com/getpelican/pelican-plugins.git">https://github.com/getpelican/pelican-plugins.git</a>.<br/>
-Once the theme and plugins are installed at the root of our blog, we need to edit the pelicanconf.py file to add the following information:</p>
+<br>
+We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: <a href="https://github.com/getpelican/pelican-plugins.git">https://github.com/getpelican/pelican-plugins.git</a>.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.<br/>
+<br>
+Once the theme and plugins are installed at the root of our blog, we need to edit the pelicanconf.py file to add the following information:</br></br></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -169,10 +173,20 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
 </pre></div>
 </td></tr></table>
 <p></p>
-<p>We can now generate the output directory and check out blog at: localhost:8000</p>
+<p>We can now generate the output directory and check out blog at: localhost:8000. The command <code>make devserver</code> will generate the static blog in the output directory. The command <code>. develop_server.sh stop</code> will stop the server.</p>
 <div class="highlight"><pre><span></span>(venv-pel) bm@Work ~/webbloggh -  $ make devserver
 (venv-pel) bm@Work ~/webbloggh -  $ . develop_server.sh stop
 </pre></div>
+<p><br/></p>
+<h2 id="adding-comments-through-disqus">Adding comments through DISQUS<a class="headerlink" href="#adding-comments-through-disqus" title="Permanent link">¶</a></h2>
+<p>To add comment capabilities to our blog, we can register with disqus.  Make sure you fill the website url - in this case: blog.depuzzled.com.  We call the website short name: blogdepuzzled.
+To test locally, we need to make sure that 2 variables are properly set in pelicanconf.py. SITEURL must be set such as <code>SITEURL = 'http://localhost:8000'</code> and DISQUS_SITENAME such that <code>DISQUS_SITENAME = "blogdepuzzled"</code>.</p>
+<p><br/></p>
+<h2 id="hosting-on-github-user-pages">Hosting on github user pages<a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link">¶</a></h2>
+<p>Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: <code>username.github.io</code> where username is our github username.  On our local machine and at the root of our blog, we create a git repository (<code>git init</code>), all the files (<code>git add -A</code>) and push them to our github account by using the pelican command: <code>make github</code>.<br/>
+We can now look at the blog at <em>username.github.io</em>
+<br>
+<br/></br></p>
             <section>
     <p id="post-share-links">
     Share on:
@@ -241,9 +255,6 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
                 <li><a href="http://sb2gh.github.io/tags.html#bootstrap-ref">bootstrap
                     <span>1</span>
 </a></li>
-                <li><a href="http://sb2gh.github.io/tags.html#font-awesome-ref">font-awesome
-                    <span>1</span>
-</a></li>
                 <li><a href="http://sb2gh.github.io/tags.html#github-ref">github
                     <span>1</span>
 </a></li>
@@ -251,6 +262,9 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
                     <span>1</span>
 </a></li>
                 <li><a href="http://sb2gh.github.io/tags.html#pelican-ref">pelican
+                    <span>1</span>
+</a></li>
+                <li><a href="http://sb2gh.github.io/tags.html#pelican-plugins-ref">pelican-plugins
                     <span>1</span>
 </a></li>
                 <li><a href="http://sb2gh.github.io/tags.html#pelican-theme-ref">pelican-theme
