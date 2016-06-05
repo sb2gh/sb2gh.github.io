@@ -5,34 +5,41 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sb2gh.github.io/</loc>
-<lastmod>2016-06-04T20:54:03-00:00</lastmod>
+<lastmod>2016-06-05T00:02:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/archives.html</loc>
-<lastmod>2016-06-04T20:54:03-00:00</lastmod>
+<lastmod>2016-06-05T00:02:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/tags.html</loc>
-<lastmod>2016-06-04T20:54:03-00:00</lastmod>
+<lastmod>2016-06-05T00:02:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/categories.html</loc>
-<lastmod>2016-06-04T20:54:03-00:00</lastmod>
+<lastmod>2016-06-05T00:02:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://sb2gh.github.io/slg.html</loc>
+<loc>http://sb2gh.github.io/pelican-blog.html</loc>
+<lastmod>2016-05-21T23:00:00-04:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sb2gh.github.io/virtualenv.html</loc>
 <lastmod>2016-05-21T23:00:00-04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -40,6 +47,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sb2gh.github.io/category/pelican.html</loc>
+<lastmod>2016-05-21T23:00:00-04:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sb2gh.github.io/category/virtualenv.html</loc>
+<lastmod>2016-05-21T23:00:00-04:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sb2gh.github.io/tag/virtualenv.html</loc>
 <lastmod>2016-05-21T23:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -75,6 +96,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sb2gh.github.io/tag/blog.html</loc>
+<lastmod>2016-05-21T23:00:00-04:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sb2gh.github.io/tag/virtualenvwrapper.html</loc>
 <lastmod>2016-05-21T23:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

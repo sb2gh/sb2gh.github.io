@@ -13,7 +13,7 @@
 <meta name="keywords" content="pelican, blog, jinja2, bootstrap, pelican-theme, pelican-plugins, github, Pelican, pelican, blog" />
 
 <meta property="og:title" content="Creating a Static Blog with Pelican and hosting it on github user pages "/>
-<meta property="og:url" content="http://sb2gh.github.io/slg.html" />
+<meta property="og:url" content="http://sb2gh.github.io/pelican-blog.html" />
 <meta property="og:description" content="In this post we create a simple static blog with Pelican hosted on github user pages" />
 <meta property="og:site_name" content="depuzzled blog" />
 <meta property="og:article:author" content="depuzzled" />
@@ -28,6 +28,7 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?63064dc3">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
 </head>
 <body>
@@ -70,7 +71,7 @@
 <article>
 <div class="row">
     <header class="page-header col-md-10 col-md-offset-2">
-    <h1><a href="http://sb2gh.github.io/slg.html"> Creating a Static Blog with Pelican and hosting it on github user pages  </a></h1>
+    <h1><a href="http://sb2gh.github.io/pelican-blog.html"> Creating a Static Blog with Pelican and hosting it on github user pages  </a></h1>
     </header>
 </div>
 
@@ -85,6 +86,7 @@
 <li><a href="#adding-theme-and-plugins">Adding Theme and Plugins</a></li>
 <li><a href="#adding-comments-through-disqus">Adding comments through DISQUS</a></li>
 <li><a href="#hosting-on-github-user-pages">Hosting on github user pages</a></li>
+<li><a href="#appendix">Appendix</a></li>
 </ul>
 </div>
         </nav>
@@ -156,7 +158,7 @@ Done. Your new project is available at /Users/bm/webblog
 <br>
 We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: <a href="https://github.com/getpelican/pelican-plugins.git">https://github.com/getpelican/pelican-plugins.git</a>.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.<br/>
 <br>
-Once the theme and plugins are installed at the root of our blog, we need to edit the pelicanconf.py file to add the following information:</br></br></p>
+Once the theme and plugins are installed at the root of our blog, we need to edit the <em>pelicanconf.py</em> file to add the following information:</br></br></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -167,12 +169,6 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
 </pre></div>
 </td></tr></table>
 <p></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example</span><span class="p">():</span>
-    <span class="k">print</span> <span class="s1">'Hello World'</span>
-</pre></div>
-</td></tr></table>
-<p></p>
 <p>We can now generate the output directory and check out blog at: localhost:8000. The command <code>make devserver</code> will generate the static blog in the output directory. The command <code>. develop_server.sh stop</code> will stop the server.</p>
 <div class="highlight"><pre><span></span>(venv-pel) bm@Work ~/webbloggh -  $ make devserver
 (venv-pel) bm@Work ~/webbloggh -  $ . develop_server.sh stop
@@ -180,23 +176,31 @@ Once the theme and plugins are installed at the root of our blog, we need to edi
 <p><br/></p>
 <h2 id="adding-comments-through-disqus">Adding comments through DISQUS<a class="headerlink" href="#adding-comments-through-disqus" title="Permanent link">¶</a></h2>
 <p>To add comment capabilities to our blog, we can register with disqus.  Make sure you fill the website url - in this case: blog.depuzzled.com.  We call the website short name: blogdepuzzled.
-To test locally, we need to make sure that 2 variables are properly set in pelicanconf.py. SITEURL must be set such as <code>SITEURL = 'http://localhost:8000'</code> and DISQUS_SITENAME such that <code>DISQUS_SITENAME = "blogdepuzzled"</code>.</p>
+To test locally, we need to make sure that 2 variables are properly set in <em>pelicanconf.py</em>. SITEURL must be set such as <code>SITEURL = 'http://localhost:8000'</code> and DISQUS_SITENAME such that <code>DISQUS_SITENAME = "blogdepuzzled"</code>.</p>
 <p><br/></p>
 <h2 id="hosting-on-github-user-pages">Hosting on github user pages<a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link">¶</a></h2>
 <p>Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: <code>username.github.io</code> where username is our github username.  On our local machine and at the root of our blog, we create a git repository (<code>git init</code>), all the files (<code>git add -A</code>) and push them to our github account by using the pelican command: <code>make github</code>.<br/>
 We can now look at the blog at <em>username.github.io</em>
 <br>
 <br/></br></p>
+<h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
+<p>We used the pelican plugin (<a href="https://github.com/talha131/pelican-elegant">https://github.com/talha131/pelican-elegant</a>; branch: <em>upgrade-bootstrap-agnostically</em>) for this blog.  We only perform very few modifications to the template:</p>
+<ul>
+<li><em>base.html</em>: include elegant.css at line 40</li>
+<li><em>elegant.css</em>: changed various fonts</li>
+</ul>
+<p><br>
+<br/></br></p>
             <section>
     <p id="post-share-links">
     Share on:
-    <a href="http://twitter.com/home?status=Creating%20a%20Static%20Blog%20with%20Pelican%20and%20hosting%20it%20on%20github%20user%20pages%20%20http%3A//sb2gh.github.io/slg.html" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="http://twitter.com/home?status=Creating%20a%20Static%20Blog%20with%20Pelican%20and%20hosting%20it%20on%20github%20user%20pages%20%20http%3A//sb2gh.github.io/pelican-blog.html" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/slg.html" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/pelican-blog.html" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/slg.html" target="_blank" title="Share on Google Plus">Google+</a>
+    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/pelican-blog.html" target="_blank" title="Share on Google Plus">Google+</a>
     ❄
-    <a href="mailto:?subject=Creating%20a%20Static%20Blog%20with%20Pelican%20and%20hosting%20it%20on%20github%20user%20pages%20&amp;body=http%3A//sb2gh.github.io/slg.html" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=Creating%20a%20Static%20Blog%20with%20Pelican%20and%20hosting%20it%20on%20github%20user%20pages%20&amp;body=http%3A//sb2gh.github.io/pelican-blog.html" target="_blank" title="Share via Email">Email</a>
     </p>
 </section>
 
@@ -205,8 +209,8 @@ We can now look at the blog at <em>username.github.io</em>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                    data-disqus-identifier="2189d14-slg"
-                href="http://sb2gh.github.io/slg.html#disqus_thread">
+                    data-disqus-identifier="2189d14-pelican-blog"
+                href="http://sb2gh.github.io/pelican-blog.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -216,8 +220,8 @@ We can now look at the blog at <em>username.github.io</em>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'blogdepuzzled';
-        var disqus_identifier = '2189d14-slg';
-    var disqus_url = 'http://sb2gh.github.io/slg.html';
+        var disqus_identifier = '2189d14-pelican-blog';
+    var disqus_url = 'http://sb2gh.github.io/pelican-blog.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -236,6 +240,13 @@ We can now look at the blog at <em>username.github.io</em>
 </section>
 
             <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://sb2gh.github.io/virtualenv.html" title="Previous: Virtualenv and virtualenvwrapper">Virtualenv and virtualenvwrapper</a></li>
+            </ul>
+            </nav>
+            </aside>
         </div>
         <section>
         <div class="col-md-2" style="float:right;font-size:0.9em;">

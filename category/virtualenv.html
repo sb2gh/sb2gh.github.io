@@ -10,14 +10,12 @@
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary">
 
-<meta property="og:title" content="All Categories · depuzzled blog"/>
-<meta name="twitter:title" content="All Categories · depuzzled blog">
-<meta property="og:url" content="http://sb2gh.github.io/categories.html" />
-<meta property="og:description" content="All categories of the depuzzled blog blog" />
-<meta name="twitter:description" content="All categories of the depuzzled blog blog">
+<meta property="og:title" content="depuzzled blog"/>
+<meta name="twitter:title" content="depuzzled blog">
+<meta property="og:url" content="http://sb2gh.github.io" />
 <meta property="og:site_name" content="depuzzled blog" />
 <meta property="og:article:author" content="depuzzled" />
-<title>All Categories · depuzzled blog
+<title>depuzzled blog
 </title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,9 +23,6 @@
 <link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?63064dc3">
 <link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
-
-        <link href="http://sb2gh.github.io/feeds/pelican.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Pelican Category Atom Feed" />
-        <link href="http://sb2gh.github.io/feeds/virtualenv.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - virtualenv Category Atom Feed" />
 </head>
 <body>
 
@@ -50,7 +45,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li ><a href="http://sb2gh.github.io">Home</a></li>
-                    <li  class="active"><a href="http://sb2gh.github.io/categories.html">Categories</a></li>
+                    <li ><a href="http://sb2gh.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://sb2gh.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://sb2gh.github.io/archives.html">Archives</a></li>
                     <li>
@@ -67,43 +62,28 @@
         <div class="row">
             <div class="col-xs-12">
 <div class="row">
-    <header class="page-header col-md-10 col-md-offset-2">
-    <h1><a href="http://sb2gh.github.io/categories.html">All Categories</a></h1>
-    </header>
-</div>
 
+    <div class="row">
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel-group" id="accordion role="tablist" aria-multiselectable="true"">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading-pelican" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="pelican-ref" data-target="#pelican-ref">
-                    <a class="list-of-categories collapsed" href="#pelican-ref">
-                        Pelican<span>1</span>
-                    </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <header>
+            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://sb2gh.github.io/archives.html">all posts</a></h1>
+            </header>
+        <div class="recent-posts">
+            <article>
+                <a href="http://sb2gh.github.io/virtualenv.html">Virtualenv and virtualenvwrapper  </a>
+                <!--<section>
+                    posted in
+                <a href="http://sb2gh.github.io/categories.html#virtualenv-ref">virtualenv</a>-->
+                <div class="recent-posts-time">
+                <time pubdate="pubdate" datetime="2016-05-20T23:20:00-04:00">Fri 20 May 2016</time>
                 </div>
-                <div id="pelican-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-pelican">
-                    <div class="panel-body">
-                        <ul class="list-articles-category">
-                            <li><time pubdate="pubdate" datetime="2016-05-20T23:20:00-04:00">Fri 20 May 2016</time><a href="http://sb2gh.github.io/pelican-blog.html">Creating a Static Blog with Pelican and hosting it on github user pages  </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading-virtualenv" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="virtualenv-ref" data-target="#virtualenv-ref">
-                    <a class="list-of-categories collapsed" href="#virtualenv-ref">
-                        virtualenv<span>1</span>
-                    </a>
-                </div>
-                <div id="virtualenv-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-virtualenv">
-                    <div class="panel-body">
-                        <ul class="list-articles-category">
-                            <li><time pubdate="pubdate" datetime="2016-05-20T23:20:00-04:00">Fri 20 May 2016</time><a href="http://sb2gh.github.io/virtualenv.html">Virtualenv and virtualenvwrapper  </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                </section>
+            </article>
+        </div>
         </div>
     </div>
 </div>
@@ -128,18 +108,6 @@ function validateForm(query)
 {
     return (query.length > 0);
 }
-</script>
-
-<script language="javascript" type="text/javascript">
-    function uncollapse() {
-            $(window.location.hash).collapse({
-                toggle: true
-            })
-    }
-</script>
-
-<script type="text/javascript" language="JavaScript">
-    uncollapse(); 
 </script>
 </body>
 <!-- Theme: Elegant built for Pelican
