@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/pelican.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-22T22:00:00-04:00</updated><entry><title>Creating a Static Blog with Pelican and hosting it on github user pages</title><link href="http://sb2gh.github.io/pelican-blog.html" rel="alternate"></link><published>2016-05-22T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-22:pelican-blog.html</id><summary type="html">
-&lt;p&gt;In this post we create a static blog using pelican and using the pelican theme 'Elegant' and host the blog on github user pages&lt;/p&gt;
+&lt;p&gt;In this post we create a static blog using pelican with the pelican theme 'Elegant' and host the blog on github user pages&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We first create a virtualenv that will contains all the necessary packages necessary for python pelican&lt;/p&gt;
