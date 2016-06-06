@@ -8,7 +8,7 @@
 bm@Work ~/webbloggh -  $ source ~/.virtualenvs/venv-pel/bin/activate
 (venv-pel) bm@Work ~/webbloggh -  $ pip install pelican, markdown, ghp-import, beautifulSoup4, cssmin, Pillow, cssprefixer, cssutils, pretty, six, smartypants, typogrify, webassets
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We need to install nodeenv so that we can install lessc that is required by webassets&lt;/p&gt;
+&lt;p&gt;In order to have webassets working properly, we need to install lessc (note: if you won't use webassets, you should be able to skip this step). The only simple way I found to make it work was to install nodeenv.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ pip install nodeenv
 (venv-pel) bm@Work ~/webbloggh -  $ nodeenv --python-virtualenv
 (venv-pel) bm@Work ~/webbloggh -  $ npm install less
@@ -53,8 +53,6 @@ Done. Your new project is available at /Users/bm/webblog
 ├── plugins
 ├── publishconf.py
 ├── publishconf.pyc
-├── requirements.txt
-├── srv.pid
 └── themes
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
@@ -85,8 +83,11 @@ To test locally, we need to make sure that 2 variables are properly set in &lt;e
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="hosting-on-github-user-pages"&gt;Hosting on github user pages&lt;a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: &lt;code&gt;username.github.io&lt;/code&gt; where username is our github username.  On our local machine and at the root of our blog, we create a git repository (&lt;code&gt;git init&lt;/code&gt;), all the files (&lt;code&gt;git add -A&lt;/code&gt;) and push them to our github account by using the pelican command: &lt;code&gt;make github&lt;/code&gt;.&lt;br/&gt;
-We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;
-&lt;br&gt;
+We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="using-custom-domain"&gt;Using custom domain&lt;a class="headerlink" href="#using-custom-domain" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to &lt;code&gt;blog&lt;/code&gt; and points to will be your github page &lt;code&gt;username.github.io&lt;/code&gt;.  Next we need to create a file named &lt;code&gt;CNAME&lt;/code&gt; at the root of our blog.  This file will contain one line: &lt;code&gt;www.blog.yourwebsitename.com&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We used the pelican plugin (&lt;a href="https://github.com/talha131/pelican-elegant"&gt;https://github.com/talha131/pelican-elegant&lt;/a&gt;; branch: &lt;em&gt;upgrade-bootstrap-agnostically&lt;/em&gt;) for this blog.  We only perform very few modifications to the template:&lt;/p&gt;
@@ -105,6 +106,8 @@ We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;
 &lt;a href="http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html"&gt;http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html&lt;/a&gt;
 &lt;a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/"&gt;https://fedoramagazine.org/make-github-pages-blog-with-pelican/&lt;/a&gt;
 &lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;http://mathamy.com/migrating-to-github-pages-using-pelican.html&lt;/a&gt;
-&lt;a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/"&gt;http://terriyu.info/blog/posts/2013/07/pelican-setup/&lt;/a&gt;&lt;/p&gt;
+&lt;a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/"&gt;http://terriyu.info/blog/posts/2013/07/pelican-setup/&lt;/a&gt;
+&lt;a href="http://nafiulis.me/making-a-static-blog-with-pelican.html"&gt;http://nafiulis.me/making-a-static-blog-with-pelican.html&lt;/a&gt;
+&lt;a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html"&gt;http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="pelican-plugins"></category><category term="github"></category></entry></feed>

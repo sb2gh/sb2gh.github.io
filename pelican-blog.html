@@ -29,6 +29,7 @@
 
 <link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?63064dc3">
 <link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
+<link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
 </head>
 <body>
@@ -86,6 +87,7 @@
 <li><a href="#adding-theme-and-plugins">Adding Theme and Plugins</a></li>
 <li><a href="#adding-comments-through-disqus">Adding comments through DISQUS</a></li>
 <li><a href="#hosting-on-github-user-pages">Hosting on github user pages</a></li>
+<li><a href="#using-custom-domain">Using custom domain</a></li>
 <li><a href="#appendix">Appendix</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -104,7 +106,7 @@
 bm@Work ~/webbloggh -  $ source ~/.virtualenvs/venv-pel/bin/activate
 (venv-pel) bm@Work ~/webbloggh -  $ pip install pelican, markdown, ghp-import, beautifulSoup4, cssmin, Pillow, cssprefixer, cssutils, pretty, six, smartypants, typogrify, webassets
 </pre></div>
-<p>We need to install nodeenv so that we can install lessc that is required by webassets</p>
+<p>In order to have webassets working properly, we need to install lessc (note: if you won't use webassets, you should be able to skip this step). The only simple way I found to make it work was to install nodeenv.</p>
 <div class="highlight"><pre><span></span>(venv-pel) bm@Work ~/webbloggh -  $ pip install nodeenv
 (venv-pel) bm@Work ~/webbloggh -  $ nodeenv --python-virtualenv
 (venv-pel) bm@Work ~/webbloggh -  $ npm install less
@@ -149,8 +151,6 @@ Done. Your new project is available at /Users/bm/webblog
 ├── plugins
 ├── publishconf.py
 ├── publishconf.pyc
-├── requirements.txt
-├── srv.pid
 └── themes
 </pre></div>
 <p><br/></p>
@@ -181,8 +181,11 @@ To test locally, we need to make sure that 2 variables are properly set in <em>p
 <p><br/></p>
 <h2 id="hosting-on-github-user-pages">Hosting on github user pages<a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link">¶</a></h2>
 <p>Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: <code>username.github.io</code> where username is our github username.  On our local machine and at the root of our blog, we create a git repository (<code>git init</code>), all the files (<code>git add -A</code>) and push them to our github account by using the pelican command: <code>make github</code>.<br/>
-We can now look at the blog at <em>username.github.io</em>
-<br>
+We can now look at the blog at <em>username.github.io</em></p>
+<p><br/></p>
+<h2 id="using-custom-domain">Using custom domain<a class="headerlink" href="#using-custom-domain" title="Permanent link">¶</a></h2>
+<p>We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to <code>blog</code> and points to will be your github page <code>username.github.io</code>.  Next we need to create a file named <code>CNAME</code> at the root of our blog.  This file will contain one line: <code>www.blog.yourwebsitename.com</code>.</p>
+<p><br>
 <br/></br></p>
 <h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
 <p>We used the pelican plugin (<a href="https://github.com/talha131/pelican-elegant">https://github.com/talha131/pelican-elegant</a>; branch: <em>upgrade-bootstrap-agnostically</em>) for this blog.  We only perform very few modifications to the template:</p>
@@ -201,7 +204,9 @@ We can now look at the blog at <em>username.github.io</em>
 <a href="http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html">http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html</a>
 <a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/">https://fedoramagazine.org/make-github-pages-blog-with-pelican/</a>
 <a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">http://mathamy.com/migrating-to-github-pages-using-pelican.html</a>
-<a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">http://terriyu.info/blog/posts/2013/07/pelican-setup/</a></p>
+<a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">http://terriyu.info/blog/posts/2013/07/pelican-setup/</a>
+<a href="http://nafiulis.me/making-a-static-blog-with-pelican.html">http://nafiulis.me/making-a-static-blog-with-pelican.html</a>
+<a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html">http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html</a></p>
 <p><br>
 <br/></br></p>
             <section>
