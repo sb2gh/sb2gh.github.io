@@ -48,7 +48,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-fixed-top" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
 
@@ -184,7 +184,7 @@ To test locally, we need to make sure that 2 variables are properly set in <em>p
 We can now look at the blog at <em>username.github.io</em></p>
 <p><br/></p>
 <h2 id="using-custom-domain">Using custom domain<a class="headerlink" href="#using-custom-domain" title="Permanent link">¶</a></h2>
-<p>We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to <code>blog</code> and points to will be your github page <code>username.github.io</code>.  Next we need to create a file named <code>CNAME</code> at the root of our blog.  This file will contain one line: <code>www.blog.yourwebsitename.com</code>.</p>
+<p>We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to <code>blog</code> and points to will be your github page <code>username.github.io</code>.  Next we need to create a file named <code>CNAME</code> in <code>content/extra</code>.  This file will contain one line: <code>www.blog.yourwebsitename.com</code>.  In <em>pelicanconf.py</em> we need to add the path <code>content/extra</code> to STATIC_PATHS (<code>STATIC_PATHS = ['extra/CNAME']</code>) and <code>EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}</code>.</p>
 <p><br>
 <br/></br></p>
 <h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>

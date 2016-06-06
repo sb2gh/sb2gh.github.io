@@ -86,7 +86,7 @@ To test locally, we need to make sure that 2 variables are properly set in &lt;e
 We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="using-custom-domain"&gt;Using custom domain&lt;a class="headerlink" href="#using-custom-domain" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to &lt;code&gt;blog&lt;/code&gt; and points to will be your github page &lt;code&gt;username.github.io&lt;/code&gt;.  Next we need to create a file named &lt;code&gt;CNAME&lt;/code&gt; at the root of our blog.  This file will contain one line: &lt;code&gt;www.blog.yourwebsitename.com&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to &lt;code&gt;blog&lt;/code&gt; and points to will be your github page &lt;code&gt;username.github.io&lt;/code&gt;.  Next we need to create a file named &lt;code&gt;CNAME&lt;/code&gt; in &lt;code&gt;content/extra&lt;/code&gt;.  This file will contain one line: &lt;code&gt;www.blog.yourwebsitename.com&lt;/code&gt;.  In &lt;em&gt;pelicanconf.py&lt;/em&gt; we need to add the path &lt;code&gt;content/extra&lt;/code&gt; to STATIC_PATHS (&lt;code&gt;STATIC_PATHS = ['extra/CNAME']&lt;/code&gt;) and &lt;code&gt;EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;

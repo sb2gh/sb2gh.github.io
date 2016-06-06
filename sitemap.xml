@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sb2gh.github.io/</loc>
-<lastmod>2016-06-05T20:25:13-00:00</lastmod>
+<lastmod>2016-06-05T20:45:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/archives.html</loc>
-<lastmod>2016-06-05T20:25:13-00:00</lastmod>
+<lastmod>2016-06-05T20:45:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/tags.html</loc>
-<lastmod>2016-06-05T20:25:13-00:00</lastmod>
+<lastmod>2016-06-05T20:45:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sb2gh.github.io/categories.html</loc>
-<lastmod>2016-06-05T20:25:13-00:00</lastmod>
+<lastmod>2016-06-05T20:45:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
