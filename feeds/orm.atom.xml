@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/orm.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2015-01-11T22:00:00-05:00</updated><entry><title>ORM and SQLAlchemy</title><link href="http://sb2gh.github.io/orm-alchemy.html" rel="alternate"></link><published>2015-01-11T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-11:orm-alchemy.html</id><summary type="html">
 &lt;h2 id="orm"&gt;ORM&lt;a class="headerlink" href="#orm" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Definition
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;&lt;br/&gt;
 Object Relational Mapping is a programming technique to access and manipulate objects without having to consider how those objects relate to their data sources.
 An ORM is a library (available in many languages) that encapsulates code needed to manipulate data.  As a result, “raw” SQL is not use anymore and the user interacts directly with objects.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Advantages&lt;/strong&gt;&lt;br/&gt;
@@ -16,11 +16,13 @@ Not lightweight and set-up.&lt;br/&gt;
 Performance  &lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="sqlalchemy"&gt;SQLAlchemy&lt;a class="headerlink" href="#sqlalchemy" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;It is a python ORM
-From &lt;a href="http://www.sqlalchemy.org/"&gt;http://www.sqlalchemy.org/&lt;/a&gt;
-SQL databases behave less like object collections the more size and performance start to matter; object collections behave less like tables and rows the more abstraction starts to matter. SQLAlchemy aims to accommodate both of these principles.&lt;/p&gt;
+&lt;p&gt;It is a python ORM.&lt;br/&gt;
+From &lt;a href="http://www.sqlalchemy.org/"&gt;http://www.sqlalchemy.org/&lt;/a&gt;:  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SQL databases behave less like object collections the more size and performance start to matter; object collections behave less like tables and rows the more abstraction starts to matter. SQLAlchemy aims to accommodate both of these principles.&lt;/p&gt;
 &lt;p&gt;SQLAlchemy considers the database to be a relational algebra engine, not just a collection of tables. Rows can be selected from not only tables but also joins and other select statements; any of these units can be composed into a larger structure. SQLAlchemy's expression language builds on this concept from its core.&lt;/p&gt;
 &lt;p&gt;SQLAlchemy is most famous for its object-relational mapper (ORM), an optional component that provides the data mapper pattern, where classes can be mapped to the database in open ended, multiple ways - allowing the object model and database schema to develop in a cleanly decoupled way from the beginning.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="http://www.sqlalchemy.org/features.html"&gt;http://www.sqlalchemy.org/features.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;from Essential SqlAlchemy:
 &lt;em&gt;SQLAlchemy also provides a lot of flexibility by supplying two major modes of usage:
@@ -28,8 +30,9 @@ SQL Expression Language (commonly referred to as Core) and ORM. These modes
 can be used separately or together depending on your preference and the needs of
 your application.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Connect to database:
-Need to create engine
-sqlite  &lt;/p&gt;
+Need to create engine&lt;br/&gt;
+&lt;br&gt;
+sqlite  &lt;/br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
 &lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:///cookies.db'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;engine2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:///:memory:'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
