@@ -3,7 +3,7 @@
 &lt;p&gt;In this post we create a static blog using pelican with the pelican theme 'Elegant' and host the blog on github user pages&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We first create a virtualenv that will contains all the necessary packages necessary for python pelican&lt;/p&gt;
+&lt;p&gt;We first create a virtualenv that will contains all the necessary packages for python pelican.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~/webbloggh -  $ mkvirtualenv venv-pel
 bm@Work ~/webbloggh -  $ source ~/.virtualenvs/venv-pel/bin/activate
 (venv-pel) bm@Work ~/webbloggh -  $ pip install pelican, markdown, ghp-import, beautifulSoup4, cssmin, Pillow, cssprefixer, cssutils, pretty, six, smartypants, typogrify, webassets
