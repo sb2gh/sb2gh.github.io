@@ -23,11 +23,13 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?abaa5954">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/jquery-ui.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/bootstrap-toc.css" media="screen">
 <link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -64,6 +66,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+            <div id="test">testing</div>
+            <!--<div id="toc">toctesting</div> -->
 
 <div class="row">
     <header class="page-header col-md-10 col-md-offset-2">
@@ -107,13 +111,32 @@
 
     </div>
 </footer><script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery-ui.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery.tocify.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/bootstrap-toc.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/test.js"></script>
 <script>
 function validateForm(query)
 {
     return (query.length > 0);
 }
 </script>
+
+<script type="text/javascript">
+    myf();
+</script>
+ <script>
+//$(window).bind("load", function() {
+    //document.getElementById("toc").innerHTML = 'fdaf';
+//   $("#toc").tocify();
+//});
+//$(document).ready({
+              //$(function() {
+                  //Calls the tocify method on your HTML div.
+                  //$("#toc").tocify();
+             // });
+</script>   
 </body>
 <!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->

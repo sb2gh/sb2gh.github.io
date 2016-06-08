@@ -8,6 +8,7 @@
 bm@Work ~/webbloggh -  $ source ~/.virtualenvs/venv-pel/bin/activate
 (venv-pel) bm@Work ~/webbloggh -  $ pip install pelican, markdown, ghp-import, beautifulSoup4, cssmin, Pillow, cssprefixer, cssutils, pretty, six, smartypants, typogrify, webassets
 &lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="testing-sub"&gt;testing sub&lt;a class="headerlink" href="#testing-sub" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;In order to have webassets working properly, we need to install lessc (note: if you won't use webassets, you should be able to skip this step). The only simple way I found to make it work was to install nodeenv.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ pip install nodeenv
 (venv-pel) bm@Work ~/webbloggh -  $ nodeenv --python-virtualenv
@@ -109,7 +110,8 @@ We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;&lt;/p&gt;
 &lt;a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/"&gt;http://terriyu.info/blog/posts/2013/07/pelican-setup/&lt;/a&gt;&lt;br/&gt;
 &lt;a href="http://nafiulis.me/making-a-static-blog-with-pelican.html"&gt;http://nafiulis.me/making-a-static-blog-with-pelican.html&lt;/a&gt;&lt;br/&gt;
 &lt;a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html"&gt;http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html"&gt;http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html&lt;/a&gt; &lt;/p&gt;
+&lt;a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html"&gt;http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html"&gt;http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="pelican-plugins"></category><category term="github"></category></entry><entry><title>ORM and SQLAlchemy</title><link href="http://sb2gh.github.io/orm-alchemy.html" rel="alternate"></link><published>2015-01-11T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-11:orm-alchemy.html</id><summary type="html">
 &lt;h2 id="orm"&gt;ORM&lt;a class="headerlink" href="#orm" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;

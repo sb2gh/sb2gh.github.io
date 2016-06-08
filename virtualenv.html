@@ -28,11 +28,13 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?abaa5954">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/jquery-ui.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/bootstrap-toc.css" media="screen">
 <link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -69,6 +71,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+            <div id="test">testing</div>
+            <!--<div id="toc">toctesting</div> -->
 <article>
 <div class="row">
     <header class="page-header col-md-10 col-md-offset-2">
@@ -77,17 +81,26 @@
 </div>
 
 <div class="row">
-    <div class="col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
+    <div class="col-md-2 table-of-content hidden-grid-float-breakpoint">
+    <div class="affix">
+    <h4>Contents</h4>
+        <nav id="toc" data-toggle="toc" class="affix"> <!--id="toc-affix" class="collapse navbar-collapse affix"> -->
+        <div class="affix">
         <div class="toc">
+        <div >
+        <!--<h4>Contents</h4>-->
+        <!--<div class="toc">
 <ul>
 <li><a href="#virtualenv">Virtualenv</a></li>
 <li><a href="#virtualenvwrapper">Virtualenvwrapper</a></li>
 <li><a href="#references">References</a></li>
 </ul>
-</div>
+</div> -->
+        </div>
+        </div>
+        </div>
         </nav>
+    </div>
     </div>
     <div class="col-md-8 el-article-content">
 
@@ -227,13 +240,32 @@ If install from requirements to continue if a package fails:
 
     </div>
 </footer>    <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery-ui.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery.tocify.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/bootstrap-toc.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/test.js"></script>
 <script>
 function validateForm(query)
 {
     return (query.length > 0);
 }
 </script>
+
+<script type="text/javascript">
+    myf();
+</script>
+ <script>
+//$(window).bind("load", function() {
+    //document.getElementById("toc").innerHTML = 'fdaf';
+//   $("#toc").tocify();
+//});
+//$(document).ready({
+              //$(function() {
+                  //Calls the tocify method on your HTML div.
+                  //$("#toc").tocify();
+             // });
+</script>   
 
             <script type="text/javascript">
 var disqus_shortname = 'blogdepuzzled';
@@ -272,6 +304,7 @@ $('#disqus_thread').on('shown', function () {
     })
 })
 </script>
+
 
 
 </body>
