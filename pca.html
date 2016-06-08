@@ -1,123 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-22T22:00:00-04:00</updated><entry><title>Creating a Static Blog with Pelican and hosting it on github user pages</title><link href="http://sb2gh.github.io/pelican-blog.html" rel="alternate"></link><published>2016-05-22T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-22:pelican-blog.html</id><summary type="html">
-&lt;p&gt;In this post we create a static blog using pelican with the pelican theme 'Elegant' and host the blog on github user pages&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We first create a virtualenv that will contains all the necessary packages for python pelican.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~/webbloggh -  $ mkvirtualenv venv-pel
-bm@Work ~/webbloggh -  $ source ~/.virtualenvs/venv-pel/bin/activate
-(venv-pel) bm@Work ~/webbloggh -  $ pip install pelican, markdown, ghp-import, beautifulSoup4, cssmin, Pillow, cssprefixer, cssutils, pretty, six, smartypants, typogrify, webassets
-&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id="testing-sub"&gt;testing sub&lt;a class="headerlink" href="#testing-sub" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;In order to have webassets working properly, we need to install lessc (note: if you won't use webassets, you should be able to skip this step). The only simple way I found to make it work was to install nodeenv.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ pip install nodeenv
-(venv-pel) bm@Work ~/webbloggh -  $ nodeenv --python-virtualenv
-(venv-pel) bm@Work ~/webbloggh -  $ npm install less
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="create-the-blog-with-pelican"&gt;Create the blog with Pelican&lt;a class="headerlink" href="#create-the-blog-with-pelican" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Now that all the necessary packages are installed, we can launch pelican to set up the static blog&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ pelican-quickstart
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We have to answer numerous questions to have pelican do the set-up.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; Where do you want to create your new web site? [.] 
-&amp;gt; What will be the title of this web site? blog depuzzled
-&amp;gt; Who will be the author of this web site? depuzzled
-&amp;gt; What will be the default language of this web site? [en] 
-&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) 
-&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://sb2gh.github.io
-&amp;gt; Do you want to enable article pagination? (Y/n) 
-&amp;gt; How many articles per page do you want? [10] 
-&amp;gt; What is your time zone? [Europe/Paris] US/Eastern
-&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
-&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) 
-&amp;gt; Do you want to upload your website using FTP? (y/N) 
-&amp;gt; Do you want to upload your website using SSH? (y/N) 
-&amp;gt; Do you want to upload your website using Dropbox? (y/N) 
-&amp;gt; Do you want to upload your website using S3? (y/N) 
-&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) 
-&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) y 
-&amp;gt; Is this your personal page (username.github.io)? (y/N) y
-Done. Your new project is available at /Users/bm/webblog
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Here is the tree structure (brew tree; tree -L 1)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── Makefile
-├── content
-├── develop_server.sh
-├── fabfile.py
-├── less.js
-├── node_modules
-├── output
-├── pelican.pid
-├── pelicanconf.py
-├── pelicanconf.pyc
-├── plugins
-├── publishconf.py
-├── publishconf.pyc
-└── themes
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="adding-theme-and-plugins"&gt;Adding Theme and Plugins&lt;a class="headerlink" href="#adding-theme-and-plugins" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We can choose the default theme of pelican or pick one that is available at &lt;a href="http://www.pelicanthemes.com"&gt;http://www.pelicanthemes.com&lt;/a&gt;.  In this post, we are using the theme named 'Elegant'.  We need to download the theme that we want use and put it in a folder named 'themes' at the root of our blog.&lt;br/&gt;
-&lt;br&gt;
-We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: &lt;a href="https://github.com/getpelican/pelican-plugins.git"&gt;https://github.com/getpelican/pelican-plugins.git&lt;/a&gt;.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.&lt;br/&gt;
-&lt;br&gt;
-Once the theme and plugins are installed at the root of our blog, we need to edit the &lt;em&gt;pelicanconf.py&lt;/em&gt; file to add the following information:&lt;/br&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'themes/elegant'&lt;/span&gt;
-&lt;span class="n"&gt;MD_EXTENSIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'codehilite(css_class=highlight)'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'headerid'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'toc(permalink=true)'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;PLUGIN_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'plugins'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pelican-pluggins-master'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s1"&gt;'sitemap'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extract_toc'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'tipue_search'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'liquid_tags.img'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'neighbors'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'latex'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="s1"&gt;'related_posts'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'assets'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'share_post'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'multi_part'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;We can now generate the output directory and check out blog at: localhost:8000. The command &lt;code&gt;make devserver&lt;/code&gt; will generate the static blog in the output directory. The command &lt;code&gt;. develop_server.sh stop&lt;/code&gt; will stop the server.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-pel) bm@Work ~/webbloggh -  $ make devserver
-(venv-pel) bm@Work ~/webbloggh -  $ . develop_server.sh stop
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="adding-comments-through-disqus"&gt;Adding comments through DISQUS&lt;a class="headerlink" href="#adding-comments-through-disqus" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;To add comment capabilities to our blog, we can register with disqus.  Make sure you fill the website url - in this case: blog.depuzzled.com.  We call the website short name: blogdepuzzled.
-To test locally, we need to make sure that 2 variables are properly set in &lt;em&gt;pelicanconf.py&lt;/em&gt;. SITEURL must be set such as &lt;code&gt;SITEURL = 'http://localhost:8000'&lt;/code&gt; and DISQUS_SITENAME such that &lt;code&gt;DISQUS_SITENAME = "blogdepuzzled"&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="hosting-on-github-user-pages"&gt;Hosting on github user pages&lt;a class="headerlink" href="#hosting-on-github-user-pages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Github users can host their blog on github user pages.  In order to do this, we must create a new repository named: &lt;code&gt;username.github.io&lt;/code&gt; where username is our github username.  On our local machine and at the root of our blog, we create a git repository (&lt;code&gt;git init&lt;/code&gt;), all the files (&lt;code&gt;git add -A&lt;/code&gt;) and push them to our github account by using the pelican command: &lt;code&gt;make github&lt;/code&gt;.&lt;br/&gt;
-We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="using-custom-domain"&gt;Using custom domain&lt;a class="headerlink" href="#using-custom-domain" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to &lt;code&gt;blog&lt;/code&gt; and points to will be your github page &lt;code&gt;username.github.io&lt;/code&gt;.  Next we need to create a file named &lt;code&gt;CNAME&lt;/code&gt; in &lt;code&gt;content/extra&lt;/code&gt;.  This file will contain one line: &lt;code&gt;www.blog.yourwebsitename.com&lt;/code&gt;.  In &lt;em&gt;pelicanconf.py&lt;/em&gt; we need to add the path &lt;code&gt;content/extra&lt;/code&gt; to STATIC_PATHS (&lt;code&gt;STATIC_PATHS = ['extra/CNAME']&lt;/code&gt;) and &lt;code&gt;EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="adding-jupyter-notebooks"&gt;Adding jupyter notebooks&lt;a class="headerlink" href="#adding-jupyter-notebooks" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;It is straightforward to add a jupyter notebook thanks to a plugin found at &lt;a href="https://github.com/danielfrg/pelican-ipynb"&gt;https://github.com/danielfrg/pelican-ipynb&lt;/a&gt;.  The instructions are clear and simple.&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;We used the pelican plugin (&lt;a href="https://github.com/talha131/pelican-elegant"&gt;https://github.com/talha131/pelican-elegant&lt;/a&gt;; branch: &lt;em&gt;upgrade-bootstrap-agnostically&lt;/em&gt;) for this blog.  We only perform very few modifications to the template:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;base.html&lt;/em&gt;: include elegant.css at line 40&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;elegant.css&lt;/em&gt;: changed various fonts&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://simonsblog.co.uk/static-site-generator-pelican.html"&gt;http://simonsblog.co.uk/static-site-generator-pelican.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://github.com/noirbizarre/pelican-social"&gt;https://github.com/noirbizarre/pelican-social&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools"&gt;https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican"&gt;https://github.com/getpelican/pelican/wiki/Powered-by-Pelican&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://blog.getpelican.com/author/kyle-fuller.html"&gt;http://blog.getpelican.com/author/kyle-fuller.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://oncrashreboot.com/elegant-best-pelican-theme-features"&gt;http://oncrashreboot.com/elegant-best-pelican-theme-features&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html"&gt;http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/"&gt;https://fedoramagazine.org/make-github-pages-blog-with-pelican/&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;http://mathamy.com/migrating-to-github-pages-using-pelican.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/"&gt;http://terriyu.info/blog/posts/2013/07/pelican-setup/&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://nafiulis.me/making-a-static-blog-with-pelican.html"&gt;http://nafiulis.me/making-a-static-blog-with-pelican.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html"&gt;http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html"&gt;http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html"&gt;http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://github.com/danielfrg/pelican-ipynb"&gt;https://github.com/danielfrg/pelican-ipynb&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="blog"></category><category term="jinja2"></category><category term="bootstrap"></category><category term="pelican-theme"></category><category term="pelican-plugins"></category><category term="github"></category></entry><entry><title>PCA scikit-learn</title><link href="http://sb2gh.github.io/pca.html" rel="alternate"></link><published>2016-04-10T20:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-04-10:pca.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="depuzzled" />
+<meta name="copyright" content="depuzzled" />
+
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="pca, PCA, " />
+
+<meta property="og:title" content="PCA scikit-learn "/>
+<meta property="og:url" content="http://sb2gh.github.io/pca.html" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="depuzzled blog" />
+<meta property="og:article:author" content="depuzzled" />
+<meta property="og:article:published_time" content="2016-04-10T20:00:00-04:00" />
+<meta name="twitter:title" content="PCA scikit-learn ">
+<meta name="twitter:description" content="">
+
+<title>PCA scikit-learn  · depuzzled blog
+</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?abaa5954">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/jquery-ui.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/bootstrap-toc.css" media="screen">
+<link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
+        <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sb2gh.github.io/"><span class=site-name>depuzzled blog</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="http://sb2gh.github.io">Home</a></li>
+                    <li ><a href="http://sb2gh.github.io/categories.html">Categories</a></li>
+                    <li ><a href="http://sb2gh.github.io/tags.html">Tags</a></li>
+                    <li ><a href="http://sb2gh.github.io/archives.html">Archives</a></li>
+                    <li>
+                    <form class="navbar-form" role="search" action="http://sb2gh.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input">
+                    </form>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!--<div class="col-xs-12">
+            <div id="test">testing</div>
+            <!--<div id="toc">toctesting</div> -->
+<article>
+<div class="row">
+    <header class="page-header col-md-10 col-md-offset-2">
+    <h1><a href="http://sb2gh.github.io/pca.html"> PCA scikit-learn  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+        <div class="col-md-8 col-md-offset-2 el-article-content">
+
+            
+            <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -348,7 +314,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell &gt; div.prompt {
+  div.unrecognized_cell > div.prompt {
     display: none;
   }
 }
@@ -401,19 +367,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area &gt; div.highlight {
+div.input_area > div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area &gt; div.highlight &gt; pre {
+div.input_area > div.highlight > pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+/* The following gets added to the <head> if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -459,7 +425,7 @@ div.input_area &gt; div.highlight &gt; pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 Adapted from GitHub theme
 
 */
@@ -921,7 +887,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell &gt; div.prompt {
+  div.text_cell > div.prompt {
     display: none;
   }
 }
@@ -986,8 +952,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-&lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -1051,8 +1017,8 @@ h6:hover .anchor-link {
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -1088,132 +1054,132 @@ h6:hover .anchor-link {
 .ansi-white-intense-bg { background-color: #A1A6B2; }
 
 .ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;matplotlib&lt;/span&gt; inline
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.datasets&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;load_digits&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;0.673294274463
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_digits&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [90]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;X_digits&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_digits&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;
-&lt;span class="n"&gt;images&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;'X_digits shape: '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;['images', 'data', 'target_names', 'DESCR', 'target']
+</style>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.673294274463
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [90]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">X_digits</span><span class="p">,</span> <span class="n">y_digits</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span>
+<span class="k">print</span> <span class="n">digits</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">print</span> <span class="s1">'X_digits shape: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_digits</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['images', 'data', 'target_names', 'DESCR', 'target']
 X_digits shape: (1797, 64)
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [111]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
-&lt;span class="n"&gt;n_components&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [54]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;print_digits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c1"&gt;# set up the figure size in inches&lt;/span&gt;
-    &lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.26&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bone&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# label the image with the target value&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-        &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [111]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [54]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">print_digits</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">max_n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># set up the figure size in inches</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">n_col</span><span class="p">,</span> <span class="mf">2.26</span> <span class="o">*</span> <span class="n">n_row</span><span class="p">))</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o"><</span> <span class="n">max_n</span> <span class="ow">and</span> <span class="n">i</span> <span class="o"><</span> <span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span><span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bone</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">)</span>
+        <span class="c1"># label the image with the target value</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span> <span class="mi">1</span>
         
-&lt;span class="n"&gt;print_digits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;'X_digits shape: '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;X_digits&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="n">print_digits</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">max_n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">print</span> <span class="s1">'X_digits shape: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_digits</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">X_digits</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAEslJREFUeJzt3X+Q53V9H/DXS6ltTNjLhB8zjXsMtimWvUOroeZAtEL1
 EAjUWKioVMOlKmko3DUkGnRg6IiGjsgNtkDFWxKqCONWHa5eZGMhUeSO1gRTYE+oTiy3tIkHNre0
 nXS0vvvHbodkmmP6+t73ux/2fY/HDMMd+/x+Py/2w+d7Tz67+31lay0AAHr2gqEHAACYNIUHAOie
@@ -1300,12 +1266,12 @@ V/d79aq662rmlJlS/tipqVI+IuL1m84q5av7vcbFHR4AoHsKDwDQPYUHAOiewgMAdE/hAQC6p/AA
 AN1TeACA7ik8AED3FB4AoHsKDwDQPYUHAOhettYO/sHMg3+QVdFay3E9l/M5vHGdT+dyeK7Nvrg2
 +3Gwc/mchQcAoAe+pAUAdE/hAQC6p/AAAN1TeACA7ik8AED3/g9cFiciOqCwHwAAAABJRU5ErkJg
 gg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;X_digits shape: (1797, 64)
+">
+</img></div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>X_digits shape: (1797, 64)
 [[  0.   0.   5. ...,   0.   0.   0.]
  [  0.   0.   0. ...,  10.   0.   0.]
  [  0.   0.   0. ...,  16.   9.   0.]
@@ -1313,35 +1279,35 @@ gg==
  [  0.   0.   1. ...,   6.   0.   0.]
  [  0.   0.   2. ...,  12.   0.   0.]
  [  0.   0.  10. ...,  12.   1.   0.]]
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [88]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.decomposition&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PCA&lt;/span&gt;
-&lt;span class="n"&gt;estimator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PCA&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_components&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;X_pca&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;estimator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_digits&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_pca&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;'PCA shape:'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_pca&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;#print np.array_str(X_pca[0:15], precision=1, suppress_small=True, max_line_width=220)&lt;/span&gt;
-&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_printoptions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;threshold&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array_str&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;column_stack&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;X_pca&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_digits&lt;/span&gt;&lt;span class="p"&gt;))[&lt;/span&gt;&lt;span class="n"&gt;y_digits&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="n"&gt;precision&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;suppress_small&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_line_width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;220&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;#print np.array_str((np.column_stack((X_pca, y_digits))[y_digits==0]), precision=1, suppress_small=True, max_line_width=220)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;&lt;type 'numpy.ndarray'&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [88]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_digits</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">'PCA shape:'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_pca</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1">#print np.array_str(X_pca[0:15], precision=1, suppress_small=True, max_line_width=220)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">array_str</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">y_digits</span><span class="p">))[</span><span class="n">y_digits</span><span class="o">==</span><span class="mi">0</span><span class="p">]),</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_line_width</span><span class="o">=</span><span class="mi">220</span><span class="p">)</span>
+<span class="c1">#print np.array_str((np.column_stack((X_pca, y_digits))[y_digits==0]), precision=1, suppress_small=True, max_line_width=220)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><type 'numpy.ndarray'>
 PCA shape:(1797, 10)
 [[  3.   21.1  12.3 -10.4   6.2  12.7  -8.6   2.   -4.  -10.7   7. ]
  [ -5.6  12.9  13.   -1.4   7.6   5.7  -1.5  -1.7   2.7   9.1   7. ]
@@ -1522,39 +1488,39 @@ PCA shape:(1797, 10)
  [  3.1  23.7   4.3  -2.7  10.    4.7  -9.8  -8.4 -10.2   0.8   7. ]
  [ -3.3  19.4  19.4  -7.1   8.9  17.8  -2.2   2.5   1.   -7.8   7. ]
  [ -3.9  18.7   1.2  -6.1  12.4   7.7  -8.8 -17.8  -3.5   6.3   7. ]]
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [33]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot_pca_scatter&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;colors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'black'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'blue'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'purple'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'yellow'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'white'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-  &lt;span class="s1"&gt;'red'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'lime'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cyan'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'orange'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'gray'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-        &lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X_pca&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;y_digits&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-        &lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X_pca&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;y_digits&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target_names&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'First Principal Component'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Second Principal Component'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">plot_pca_scatter</span><span class="p">():</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'purple'</span><span class="p">,</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'white'</span><span class="p">,</span>
+  <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'lime'</span><span class="p">,</span> <span class="s1">'cyan'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'gray'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)):</span>
+        <span class="n">px</span> <span class="o">=</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">][</span><span class="n">y_digits</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">py</span> <span class="o">=</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">][</span><span class="n">y_digits</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'First Principal Component'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Second Principal Component'</span><span class="p">)</span>
     
-&lt;span class="n"&gt;plot_pca_scatter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="n">plot_pca_scatter</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl8VNXd/993MpnMJJPJTgIEIgbZtwFKx4anibYhVZRC
 Ui0KdEQrKksAB4wWQdTwIEoEkVoMWhLQulSkRSsz8qhg8efTPuwoBVwoVVEUUEJIQrbv7487a2aG
 JJCIwP3wui/uPffcc753ZnK+57srIoIGDRo0aNAQCrrzTYAGDRo0aPjhQmMSGjRo0KAhLDQmoUGD
@@ -2477,38 +2443,38 @@ KEfi18AXwHal1FbgdeBrETkA/ArDllEJlEtTVb7AzxTqe/wnxhLYZuA1EdkkIhUYtoR/Av8AnhGR
 zRHavQ74qWn834ZRFzlc35uBk6bRXxuuzzB0qnCNJgLKKP+YLyKXtbcsoVBGhcExIjI70r0aTSzo
 mYRGE5lQMQ8didNBRs1piJ5JaDQajSYkeiah0Wg0mpBoJaHRaDSakGglodFoNJqQaCWh0Wg0mpBo
 JaHRaDSakGglodFoNJqQ/H95VFPWIVGmrwAAAABJRU5ErkJggg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [112]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;print_pca_components&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.26&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;'-component'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(())&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;(())&lt;/span&gt;
+">
+</img></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [112]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">print_pca_components</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">n_row</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">n_col</span><span class="p">,</span> <span class="mf">2.26</span> <span class="o">*</span> <span class="n">n_row</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">comp</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'-component'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(())</span>
 
-&lt;span class="n"&gt;print_pca_components&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;estimator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;components_&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;n_components&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;#print_pca_components(images, 5, 2)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;0 (64,)
+<span class="n">print_pca_components</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">components_</span><span class="p">[:</span><span class="n">n_components</span><span class="p">],</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">n_row</span><span class="p">)</span>
+<span class="c1">#print_pca_components(images, 5, 2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 (64,)
 1 (64,)
 2 (64,)
 3 (64,)
@@ -2518,12 +2484,12 @@ JaHRaDSakGglodFoNJqQ/H95VFPWIVGmrwAAAABJRU5ErkJggg==
 7 (64,)
 8 (64,)
 9 (64,)
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAHa5JREFUeJzt3XmYXGWZ9/HvbWIwbIkhbJE4Yc2AIJsCwyKRzQEUUEEM
 yqaCoggqqDOyGBw3xlF0UATZF8mIDOsryCrbAEFJAoQExGAgbAGRQNgSCM/8USfYhnS670wnRT3v
 93NddeX0qd9zzulzV3XdfapTT5RSkCRJqtlb2n0AkiRJi5sNjyRJqp4NjyRJqp4NjyRJqp4NjyRJ
@@ -2658,43 +2624,43 @@ ibt/JpU/g9w8hwCf/rfzcwP+Kxefuf7g3IA+1K9f4rUqN2Uh5J4GMDYXP/9rn0juAH5+41fSYzJW
 2Tb5ZO6GV3gkSVL1bHgkSVL1bHgkSVL1bHgkSVL1bHgkSVL1bHgkSVL1bHgkSVL1bHgkSVL1bHgk
 SVL1bHgkSVL1bHgkSVL1opTS/Z0R3d+pJaKUkpzcq3vWs/36qp7Wsv18btbF52Y9uqvlQhseSZKk
 GviWliRJqp4NjyRJqp4NjyRJqp4NjyRJqp4NjyRJqt7/At9J2N+CBwssAAAAAElFTkSuQmCC
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [109]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot_gallery&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;4.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.26&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(()),&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;(())&lt;/span&gt;
+">
+</img></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [109]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">plot_gallery</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.</span> <span class="o">*</span> <span class="n">n_col</span><span class="p">,</span> <span class="mf">2.26</span> <span class="o">*</span> <span class="n">n_row</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(()),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(())</span>
         
-&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Component #&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;estimator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;components_&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;estimator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;components_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;
-&lt;span class="n"&gt;plot_gallery&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;estimator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;components_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;(10, 64)
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Component #</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">components_</span><span class="p">))]</span>
+<span class="k">print</span> <span class="n">estimator</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">plot_gallery</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">components_</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(10, 64)
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAGdJJREFUeJzt3X/c1fP9x/Hny3UpqZRUKq6kKLVaKpNR5EcsJD8yK0zm
 93c2IzNfjIsZN9vId2EsRaLYDNlkfmwrTDLKjxQqopRUKoV+uLy/f3w+Xc6uuTqfV31O53OuPe63
 23XrujrPz+vzuc7r+pzzOa9zzudYCEEAAAAAAAAovm2KvQEAAAAAAACIMKgBAAAAAADICAY1AAAA
@@ -2812,24 +2778,24 @@ DGoAAAAAAAAygkENAAAAAABARjCoAQAAAAAAyAgGNQAAAAAAABnBoAYAAAAAACAjGNQAAAAAAABk
 BIMaAAAAAACAjGBQAwAAAAAAkBEWQqj9QrPaL0TBhRAsjTr0sXjoYd1AH0sfPawb6GPpo4d1A30s
 ffSwbqCPpa+2Hm5yUAMAAAAAAICth7c+AQAAAAAAZASDGgAAAAAAgIxgUAMAAAAAAJARDGoAAAAA
 AAAygkENAAAAAABARvw/w3G+II8bPYcAAAAASUVORK5CYII=
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+">
+</img></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -2855,88 +2821,169 @@ AAAygkENAAAAAABARvw/w3G+II8bPYcAAAAASUVORK5CYII=
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;
-</summary><category term="pca"></category></entry><entry><title>ORM and SQLAlchemy</title><link href="http://sb2gh.github.io/orm-alchemy.html" rel="alternate"></link><published>2015-01-11T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-11:orm-alchemy.html</id><summary type="html">
-&lt;h2 id="orm"&gt;ORM&lt;a class="headerlink" href="#orm" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;&lt;br/&gt;
-Object Relational Mapping is a programming technique to access and manipulate objects without having to consider how those objects relate to their data sources.
-An ORM is a library (available in many languages) that encapsulates code needed to manipulate data.  As a result, “raw” SQL is not use anymore and the user interacts directly with objects.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Advantages&lt;/strong&gt;&lt;br/&gt;
-DRY: data model is written in one place making it easier to update and maintain code.&lt;br/&gt;
-Allow the automation of various checks&lt;br/&gt;
-Reduce possibility of sql injections&lt;br/&gt;
-CRUD operations are made to be simpler than with sql directly.&lt;br/&gt;
-Join queries are simpler.&lt;br/&gt;
-Concurrency support, cache management, transaction management and isolation.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Disadvantages&lt;/strong&gt;&lt;br/&gt;
-Not lightweight and set-up.&lt;br/&gt;
-Performance  &lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="sqlalchemy"&gt;SQLAlchemy&lt;a class="headerlink" href="#sqlalchemy" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;It is a python ORM.&lt;br/&gt;
-From &lt;a href="http://www.sqlalchemy.org/"&gt;http://www.sqlalchemy.org/&lt;/a&gt;:  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;SQL databases behave less like object collections the more size and performance start to matter; object collections behave less like tables and rows the more abstraction starts to matter. SQLAlchemy aims to accommodate both of these principles.&lt;/p&gt;
-&lt;p&gt;SQLAlchemy considers the database to be a relational algebra engine, not just a collection of tables. Rows can be selected from not only tables but also joins and other select statements; any of these units can be composed into a larger structure. SQLAlchemy's expression language builds on this concept from its core.&lt;/p&gt;
-&lt;p&gt;SQLAlchemy is most famous for its object-relational mapper (ORM), an optional component that provides the data mapper pattern, where classes can be mapped to the database in open ended, multiple ways - allowing the object model and database schema to develop in a cleanly decoupled way from the beginning.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="http://www.sqlalchemy.org/features.html"&gt;http://www.sqlalchemy.org/features.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;from Essential SqlAlchemy:
-&lt;em&gt;SQLAlchemy also provides a lot of flexibility by supplying two major modes of usage:
-SQL Expression Language (commonly referred to as Core) and ORM. These modes
-can be used separately or together depending on your preference and the needs of
-your application.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Connect to database:
-Need to create engine&lt;br/&gt;
-&lt;br&gt;
-sqlite  &lt;/br&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
-&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:///cookies.db'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;engine2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:///:memory:'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;engine3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:////home/cookiemonster/cookies.db'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;engine4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sqlite:///c:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;Users&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;cookiemonster&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;cookies.db'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;postgresql  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
-&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'postgresql+psycopg2://username:password@localhost:5432/mydb'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;mysql  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
-&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mysql+pymysql://cookiemonster:chocolatechip'&lt;/span&gt;
-&lt;span class="s1"&gt;'@mysql01.monster.internal/cookies'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pool_recycle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3600&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To be continued...&lt;/p&gt;</summary><category term="ORM"></category><category term="SQLAlchemy"></category></entry><entry><title>Virtualenv and virtualenvwrapper</title><link href="http://sb2gh.github.io/virtualenv.html" rel="alternate"></link><published>2014-05-15T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2014-05-15:virtualenv.html</id><summary type="html">
-&lt;h2 id="virtualenv"&gt;Virtualenv&lt;a class="headerlink" href="#virtualenv" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Virtualenv allows the creation of different python projects with each different requirement. Some of these requirements can conflict between each other. Virtualenv solves these problems by allowing the user to create specific python environment for each project.&lt;br/&gt;
-Set up:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Download: &lt;code&gt;pip install virtualenv&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Log into project folder: &lt;code&gt;cd ~/proj&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Create virtualenv (python executable + pip): &lt;code&gt;virtualenv venv&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Start using virtual env: &lt;code&gt;source env/bin/activate&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;~/proj/env/bin/pip freeze &amp;gt; ~/proj/requirements.txt&lt;/code&gt; (this will allow anyone to recreate the virtual env easily by running: pip install –r requirements.txt)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Notes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;you can also specify the python interpreter: &lt;code&gt;virtualenv –p /usr/bin/bython2.7 venv&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;you should also exclude the virtual env folder from your source control by adding this folder to the ignore file (i.e., “.gitignore”)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="virtualenvwrapper"&gt;Virtualenvwrapper&lt;a class="headerlink" href="#virtualenvwrapper" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;virtualenvwrapper simplify the use of virtual environments.  All the virtual environments will be stored in the same folder.&lt;/p&gt;
-&lt;p&gt;Install virtualenvwrapper: &lt;code&gt;pip install virtualenvwrapper&lt;/code&gt;
-Create folder where all virtual environments will be stored: &lt;code&gt;export WORKON_HOME=~/VirtEnvs&lt;/code&gt;
-Reload: &lt;code&gt;source /usr/local/bin/virtualenvwrapper.sh&lt;/code&gt;
-Create a new environment: &lt;code&gt;mkvirtualenv venv-test&lt;/code&gt;
-Remove virtual env: &lt;code&gt;rmvirtualenv venv-test&lt;/code&gt;
-List all of the venvs: &lt;code&gt;lsvirtualenv&lt;/code&gt;
-Go to directory of current venv: &lt;code&gt;cdvirtualenv&lt;/code&gt;
-Show contents of site-packages directory: &lt;code&gt;lssitepackages&lt;/code&gt;
-If install from requirements to continue if a package fails: 
-&lt;code&gt;cat requirements.txt | while read PACKAGE; do pip install "$PACKAGE"; done&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/"&gt;http://docs.python-guide.org/en/latest/dev/virtualenvs/&lt;/a&gt;
-&lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;https://virtualenvwrapper.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry></feed>
+</script>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="http://twitter.com/home?status=PCA%20scikit-learn%20%20http%3A//sb2gh.github.io/pca.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/pca.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/pca.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=PCA%20scikit-learn%20&amp;body=http%3A//sb2gh.github.io/pca.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://sb2gh.github.io/pca.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'blogdepuzzled';
+        var disqus_identifier = 'http://sb2gh.github.io/pca.html';
+    var disqus_url = 'http://sb2gh.github.io/pca.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://sb2gh.github.io/orm-alchemy.html" title="Previous: ORM and SQLAlchemy">ORM and SQLAlchemy</a></li>
+                <li class="next-article"><a href="http://sb2gh.github.io/pelican-blog.html" title="Next: Creating a Static Blog with Pelican and hosting it on github user pages">Creating a Static Blog with Pelican and hosting it on github user pages</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-04-10T20:00:00-04:00">Apr 10, 2016</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://sb2gh.github.io/categories.html#pca-ref">PCA</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://sb2gh.github.io/tags.html#pca-ref">pca
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+            </div>
+        </div>
+    </div>
+<footer>
+    <div class="container">
+    
+
+
+
+        <div class=col-md-12>
+            Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a>
+        </div>
+
+    </div>
+</footer>    <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery-ui.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery.tocify.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/bootstrap-toc.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/test.js"></script>
+<script>
+function validateForm(query)
+{
+    return (query.length > 0);
+}
+</script>
+
+<script type="text/javascript">
+    myf();
+</script>
+ <script>
+//$(window).bind("load", function() {
+    //document.getElementById("toc").innerHTML = 'fdaf';
+//   $("#toc").tocify();
+//});
+//$(document).ready({
+              //$(function() {
+                  //Calls the tocify method on your HTML div.
+                  //$("#toc").tocify();
+             // });
+</script>   
+
+            <script type="text/javascript">
+var disqus_shortname = 'blogdepuzzled';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+
+</body>
+<!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

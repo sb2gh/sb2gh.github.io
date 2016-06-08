@@ -100,6 +100,7 @@
 <li><a href="#adding-comments-through-disqus">Adding comments through DISQUS</a></li>
 <li><a href="#hosting-on-github-user-pages">Hosting on github user pages</a></li>
 <li><a href="#using-custom-domain">Using custom domain</a></li>
+<li><a href="#adding-jupyter-notebooks">Adding jupyter notebooks</a></li>
 <li><a href="#appendix">Appendix</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -202,6 +203,9 @@ We can now look at the blog at <em>username.github.io</em></p>
 <p><br/></p>
 <h2 id="using-custom-domain">Using custom domain<a class="headerlink" href="#using-custom-domain" title="Permanent link">¶</a></h2>
 <p>We are using godaddy.com. We need to create a new CNAME in records.  Host will be set to <code>blog</code> and points to will be your github page <code>username.github.io</code>.  Next we need to create a file named <code>CNAME</code> in <code>content/extra</code>.  This file will contain one line: <code>www.blog.yourwebsitename.com</code>.  In <em>pelicanconf.py</em> we need to add the path <code>content/extra</code> to STATIC_PATHS (<code>STATIC_PATHS = ['extra/CNAME']</code>) and <code>EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}</code>.</p>
+<p><br/></p>
+<h2 id="adding-jupyter-notebooks">Adding jupyter notebooks<a class="headerlink" href="#adding-jupyter-notebooks" title="Permanent link">¶</a></h2>
+<p>It is straightforward to add a jupyter notebook thanks to a plugin found at <a href="https://github.com/danielfrg/pelican-ipynb">https://github.com/danielfrg/pelican-ipynb</a>.  The instructions are clear and simple.</p>
 <p><br>
 <br/></br></p>
 <h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
@@ -225,7 +229,8 @@ We can now look at the blog at <em>username.github.io</em></p>
 <a href="http://nafiulis.me/making-a-static-blog-with-pelican.html">http://nafiulis.me/making-a-static-blog-with-pelican.html</a><br/>
 <a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html">http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html</a><br/>
 <a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html">http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html</a><br/>
-<a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html">http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html</a> </p>
+<a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html">http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html</a><br/>
+<a href="https://github.com/danielfrg/pelican-ipynb">https://github.com/danielfrg/pelican-ipynb</a></p>
 <p><br>
 <br/></br></p>
             <section>
@@ -280,7 +285,7 @@ We can now look at the blog at <em>username.github.io</em></p>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://sb2gh.github.io/orm-alchemy.html" title="Previous: ORM and SQLAlchemy">ORM and SQLAlchemy</a></li>
+                <li class="previous-article">« <a href="http://sb2gh.github.io/pca.html" title="Previous: PCA scikit-learn">PCA scikit-learn</a></li>
             </ul>
             </nav>
             </aside>
