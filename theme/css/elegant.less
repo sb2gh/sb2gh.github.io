@@ -123,17 +123,23 @@ html {
 }
 
 body {
-    padding-top: 40px;
+    padding-top: 80px;
     margin-bottom: @el-page-footer-height;
     @media (max-width: @screen-md) {
         margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 1;
     }
     @media (max-width: @screen-sm) {
+        padding-left: 0px;
         margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 2;
     }
     @media (max-width: @screen-xs) {
+        padding-left: 0px;
         margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 3;
     }
+}
+
+recent-posts {
+    padding-left: 100px;
 }
 
 footer {
@@ -144,13 +150,13 @@ footer {
     display: flex;
     height: @el-page-footer-height;
     @media (max-width: @screen-md) {
-        height: @el-page-footer-height + @el-page-footer-height-subset * 1;
+        height: 10px; //@el-page-footer-height + @el-page-footer-height-subset * 1;
     }
     @media (max-width: @screen-sm) {
-        height: @el-page-footer-height + @el-page-footer-height-subset * 2;
+        height: 10px; // @el-page-footer-height + @el-page-footer-height-subset * 2;
     }
     @media (max-width: @screen-xs) {
-        height: @el-page-footer-height + @el-page-footer-height-subset * 3;
+        height: 10px; // @el-page-footer-height + @el-page-footer-height-subset * 3;
     }
     position: absolute;
     width: 100%;
