@@ -1267,10 +1267,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="647807dd-3ef2-4b6f-8939-29724f9f2209"&gt;&lt;/div&gt;
+&lt;div id="e25e4c1f-3d10-44ae-910a-ec21907602d2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#647807dd-3ef2-4b6f-8939-29724f9f2209');
+var element = $('#e25e4c1f-3d10-44ae-910a-ec21907602d2');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -1387,10 +1387,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a40c043e-d17c-4a28-bf9e-f7bac6f2e71f"&gt;&lt;/div&gt;
+&lt;div id="ab06688a-6fa2-432e-9858-5d43e8293fc5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a40c043e-d17c-4a28-bf9e-f7bac6f2e71f');
+var element = $('#ab06688a-6fa2-432e-9858-5d43e8293fc5');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -1655,10 +1655,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7764a783-31d6-4180-9bd7-da790e7ead64"&gt;&lt;/div&gt;
+&lt;div id="49196214-026a-48de-a1af-92d9fa4c6fbd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7764a783-31d6-4180-9bd7-da790e7ead64');
+var element = $('#49196214-026a-48de-a1af-92d9fa4c6fbd');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
