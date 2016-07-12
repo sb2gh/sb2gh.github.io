@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/gist.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2015-07-20T22:00:00-04:00</updated><entry><title>Gists</title><link href="http://sb2gh.github.io/gists.html" rel="alternate"></link><published>2015-07-20T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-07-20:gists.html</id><summary type="html">
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="zip-files"&gt;Zip Files&lt;a class="headerlink" href="#zip-files" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/d1438c02205d154da8c4.js"&gt;&lt;/script&gt;
+[gist:id=d1438c02205d154da8c4]&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="loop-through-current-directory"&gt;Loop through current directory&lt;a class="headerlink" href="#loop-through-current-directory" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/a986bc01ea9e2e3338ee.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="list-current-processes"&gt;List current processes&lt;a class="headerlink" href="#list-current-processes" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/d77d20d92102f620872d.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="platform-info"&gt;Platform info&lt;a class="headerlink" href="#platform-info" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/ecb8eda9a1743ba929cc.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="download-yahoo-historical-prices"&gt;Download yahoo historical prices&lt;a class="headerlink" href="#download-yahoo-historical-prices" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/2979db2550323c37bf8d.js"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="gist"></category><category term="python"></category></entry></feed>

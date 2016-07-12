@@ -1076,7 +1076,7 @@ X_digits shape: (1797, 64)
     &lt;span class="c1"&gt;# set up the figure size in inches&lt;/span&gt;
     &lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.26&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
     &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
         &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt;
         &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bone&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="c1"&gt;# label the image with the target value&lt;/span&gt;
@@ -1095,7 +1095,7 @@ X_digits shape: (1797, 64)
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAEslJREFUeJzt3X+Q53V9H/DXS6ltTNjLhB8zjXsMtimWvUOroeZAtEL1
 EAjUWKioVMOlKmko3DUkGnRg6IiGjsgNtkDFWxKqCONWHa5eZGMhUeSO1gRTYE+oTiy3tIkHNre0
 nXS0vvvHbodkmmP6+t73ux/2fY/HDMMd+/x+Py/2w+d7Tz67+31lay0AAHr2gqEHAACYNIUHAOie
@@ -1223,7 +1223,7 @@ gg==
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;&lt;type 'numpy.ndarray'&gt;
+&lt;pre&gt;&lt;type 'numpy.ndarray'=""&gt;
 PCA shape:(1797, 10)
 [[  3.   21.1  12.3 -10.4   6.2  12.7  -8.6   2.   -4.  -10.7   7. ]
  [ -5.6  12.9  13.   -1.4   7.6   5.7  -1.5  -1.7   2.7   9.1   7. ]
@@ -1404,7 +1404,7 @@ PCA shape:(1797, 10)
  [  3.1  23.7   4.3  -2.7  10.    4.7  -9.8  -8.4 -10.2   0.8   7. ]
  [ -3.3  19.4  19.4  -7.1   8.9  17.8  -2.2   2.5   1.   -7.8   7. ]
  [ -3.9  18.7   1.2  -6.1  12.4   7.7  -8.8 -17.8  -3.5   6.3   7. ]]
-&lt;/pre&gt;
+&lt;/type&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1436,7 +1436,7 @@ PCA shape:(1797, 10)
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl8VNXd/993MpnMJJPJTgIEIgbZtwFKx4anibYhVZRC
 Ui0KdEQrKksAB4wWQdTwIEoEkVoMWhLQulSkRSsz8qhg8efTPuwoBVwoVVEUUEJIQrbv7487a2aG
 JJCIwP3wui/uPffcc753ZnK+57srIoIGDRo0aNAQCrrzTYAGDRo0aPjhQmMSGjRo0KAhLDQmoUGD
@@ -2405,7 +2405,7 @@ JaHRaDSakGglodFoNJqQ/H95VFPWIVGmrwAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAHa5JREFUeJzt3XmYXGWZ9/HvbWIwbIkhbJE4Yc2AIJsCwyKRzQEUUEEM
 yqaCoggqqDOyGBw3xlF0UATZF8mIDOsryCrbAEFJAoQExGAgbAGRQNgSCM/8USfYhnS670wnRT3v
 93NddeX0qd9zzulzV3XdfapTT5RSkCRJqtlb2n0AkiRJi5sNjyRJqp4NjyRJqp4NjyRJqp4NjyRJ
@@ -2576,7 +2576,7 @@ GviWliRJqp4NjyRJqp4NjyRJqp4NjyRJqp4NjyRJqt7/At9J2N+CBwssAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAGdJJREFUeJzt3X/c1fP9x/Hny3UpqZRUKq6kKLVaKpNR5EcsJD8yK0zm
 93c2IzNfjIsZN9vId2EsRaLYDNlkfmwrTDLKjxQqopRUKoV+uLy/f3w+Xc6uuTqfV31O53OuPe63
 23XrujrPz+vzuc7r+pzzOa9zzudYCEEAAAAAAAAovm2KvQEAAAAAAACIMKgBAAAAAADICAY1AAAA

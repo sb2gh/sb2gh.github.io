@@ -1040,7 +1040,7 @@ and filter hundreds of thousands of rows with extreme responsiveness.  &lt;/li&g
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="API-&amp;amp;-Usage"&gt;API &amp; Usage&lt;a class="anchor-link" href="#API-&amp;amp;-Usage"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;API documentation is hosted on readthedocs: &lt;a href="http://qgrid.readthedocs.org/en/latest/"&gt;http://qgrid.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="API-&amp;amp;-Usage"&gt;API &amp;amp; Usage&lt;a class="anchor-link" href="#API-&amp;amp;-Usage"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;API documentation is hosted on readthedocs: &lt;a href="http://qgrid.readthedocs.org/en/latest/"&gt;http://qgrid.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The API documentation can also be accessed via the "?" operator in IPython.  To use the "?" operator, type the name of the function followed by "?" to see the documentation for that function, like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;qgrid.nbinstall?
 qgrid.show_grid?
@@ -1070,7 +1070,7 @@ qgrid.set_grid_options?&lt;/code&gt;&lt;/pre&gt;
 &lt;span class="c1"&gt;# Set this pandas option to prevent the grid from being too big&lt;/span&gt;
 &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'display.max_rows'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Get a pandas DataFrame containing the daily prices for the S&amp;P; 500 from 1/1/2011 - 1/1/2014&lt;/span&gt;
+&lt;span class="c1"&gt;# Get a pandas DataFrame containing the daily prices for the S&amp;amp;P; 500 from 1/1/2011 - 1/1/2014&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pandas.io.data&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_data_yahoo&lt;/span&gt;
 &lt;span class="n"&gt;spy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_data_yahoo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
     &lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'SPY'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
@@ -1107,7 +1107,7 @@ qgrid.set_grid_options?&lt;/code&gt;&lt;/pre&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -1267,10 +1267,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e25e4c1f-3d10-44ae-910a-ec21907602d2"&gt;&lt;/div&gt;
+&lt;div id="9e65853f-acd6-4d38-9ef6-37bd39c56cea"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e25e4c1f-3d10-44ae-910a-ec21907602d2');
+var element = $('#9e65853f-acd6-4d38-9ef6-37bd39c56cea');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -1387,10 +1387,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ab06688a-6fa2-432e-9858-5d43e8293fc5"&gt;&lt;/div&gt;
+&lt;div id="6b54b57d-6234-469d-b914-b5a30661fc83"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ab06688a-6fa2-432e-9858-5d43e8293fc5');
+var element = $('#6b54b57d-6234-469d-b914-b5a30661fc83');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -1521,7 +1521,7 @@ function($){
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -1655,10 +1655,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="49196214-026a-48de-a1af-92d9fa4c6fbd"&gt;&lt;/div&gt;
+&lt;div id="22c17114-6446-417a-b6d0-15159c545806"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#49196214-026a-48de-a1af-92d9fa4c6fbd');
+var element = $('#22c17114-6446-417a-b6d0-15159c545806');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -1745,7 +1745,7 @@ function($){
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;

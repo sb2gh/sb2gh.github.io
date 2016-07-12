@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/flask.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2013-01-20T22:00:00-05:00</updated><entry><title>Website creation with Flask framework</title><link href="http://sb2gh.github.io/flask-v0.html" rel="alternate"></link><published>2013-01-20T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2013-01-20:flask-v0.html</id><summary type="html">
+&lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;First create a folder where we are going to have all our files for the application&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~ -  $ mkdir flsk
+bm@Work ~ -  $ cd flsk
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We then create a virtualenv that will contains all the necessary packages for flask.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~/flsk -  $ mkvirtualenv venv-flask
+bm@Work ~/flsk -  $ source ~/.virtualenvs/venv-flask/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure that PYTHONPATH is empty, otherwise the new python will use global module as well.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export PYTHONPATH=''
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now install flask&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-flask) bm@Work ~/flsk -  $ pip install flask
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once flask is installed, when we enter &lt;code&gt;pip freeze&lt;/code&gt; we should see something like this:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;click==6.6
+Flask==0.11.1
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+Werkzeug==0.11.10
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="hello-world"&gt;Hello World!&lt;a class="headerlink" href="#hello-world" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We create the basic file app.py  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;'&amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt;'&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now launch our app: &lt;code&gt;python app.py&lt;/code&gt;&lt;br/&gt;
+We can see our website at: &lt;code&gt;localhost:5000&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;Notes:&lt;br/&gt;
+1. The default port is 5000&lt;br/&gt;
+2. In order to have the app seen outside the local computer we change &lt;code&gt;app.run(debug=True)&lt;/code&gt; by &lt;code&gt;app.run(host='0.0.0.0', port=5000, debug=True)&lt;/code&gt;.  If you are testing on another computer on the same network, in order to see the ip to put in the address bar, you can run ifconfig &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="template"&gt;Template&lt;a class="headerlink" href="#template" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;HTML templates should be created in order to dissociate models from views.  Flask will recognize these templates.  We just need to create a folder named &lt;code&gt;templates&lt;/code&gt; at the root of our app folder.&lt;br/&gt;
+We can then create for instance an index.html such as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;v0&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; paragraph&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Let's go to product details &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;url_for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'product'&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;here&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note:&lt;br/&gt;
+1. we have included a link in the body by using the function &lt;code&gt;url_for&lt;/code&gt;.  It will redirect to the page &lt;code&gt;product.html/0&lt;/code&gt;.&lt;br/&gt;
+2. We need to modify the include statement at the beginning to &lt;code&gt;from flask import Flask, render_template, url_for&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="forms"&gt;Forms&lt;a class="headerlink" href="#forms" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Form can be implemented in regular html but it is much easier to use the package &lt;code&gt;flask-wtf&lt;/code&gt;.  To install: &lt;code&gt;pip install flask-wtf&lt;/code&gt;.  Installing this will also help avoiding CSRF (cross-site-request-forgery) attacks.&lt;br/&gt;
+We need to update our included packages.  We will add the following includes (if we plan for example to use a radiofield and a submitfield):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask_wtf&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Form&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;wtforms.fields&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RadioField&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SubmitField&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="main-flask-decorators"&gt;Main Flask decorators&lt;a class="headerlink" href="#main-flask-decorators" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;route&lt;/code&gt;: registers function to handle routes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before_request&lt;/code&gt;: registers a function to run prior any request handlers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before_first_request&lt;/code&gt;: only once at the start&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;after_request&lt;/code&gt;: ...&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;teardown_request&lt;/code&gt;: after request handlers - even in case of exception thrown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;errorhandler&lt;/code&gt;: custom error handler&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="context-application"&gt;Context Application&lt;a class="headerlink" href="#context-application" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;current_app&lt;br/&gt;
+g&lt;br/&gt;
+request&lt;br/&gt;
+session  &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="helper-functions"&gt;Helper functions&lt;a class="headerlink" href="#helper-functions" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;url_for()&lt;/code&gt;: generates links to route or static files&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;render_template()&lt;/code&gt;: renders jinja2 templates&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;redirect()&lt;/code&gt;: generates a redirect response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jsonify()&lt;/code&gt;: generates a json response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;abort()&lt;/code&gt;: generates an error response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flash()&lt;/code&gt;: registers a message to display&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="large-project"&gt;Large project&lt;a class="headerlink" href="#large-project" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In large project it is easier to have a similar to the following tree structure (see Miguel Greenberg):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── app/
+├── config.py
+├── manage.py
+├── requirements.txt
+└── tests/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Inside app folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── __init__.py
+├── emails.py
+├── models.py      # database models
+├── static/
+├── appblueprint/
+└── templates/
+    └── mainblueprinttemplate/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="bootstrap"&gt;Bootstrap&lt;a class="headerlink" href="#bootstrap" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;{% extends "bootstrap/base.html" %}&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="creating-links"&gt;Creating links&lt;a class="headerlink" href="#creating-links" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Routes created with @app.route -&amp;gt; &lt;code&gt;url_for('index')&lt;/code&gt;&lt;br/&gt;
+Blueprint routes -&amp;gt; &lt;code&gt;url_for('bluepr.index')
+Blueprint name not given in context -&amp;gt;&lt;/code&gt;url_for('.index')&lt;code&gt;Static files -&amp;gt;&lt;/code&gt;url_for('static', filename='style.css')`&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="problem-reload-server"&gt;Problem reload server&lt;a class="headerlink" href="#problem-reload-server" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Sometimes there are sockets still running, so we need to kill the server before relaunch. Assuming the server runs on port 5000: &lt;br/&gt;
+&lt;code&gt;lsof -n -i4TCP:5000 | grep LISTEN&lt;/code&gt;&lt;br/&gt;
+Get the process id (PID) and kill it, then relaunch:&lt;br/&gt;
+&lt;code&gt;kill -9 pidnumber&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="pip-install"&gt;Pip install&lt;a class="headerlink" href="#pip-install" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install flask
+pip install flask-script
+pip install flask-bootstrap
+pip install flask-sqlalchemy
+pip install flask-wtf
+pip install flask-login
+pip install flask-moment # extension that simplifies the use of moment.js to render dates
+pip install flask-pagedown # renders markdown live in the browser
+pip install markdown bleach
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjhea0/awesome-flask"&gt;https://github.com/mjhea0/awesome-flask&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="flask"></category><category term="python"></category></entry></feed>

@@ -35,9 +35,14 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
         <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
 
+        <link href="http://sb2gh.github.io/feeds/flask.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Flask Category Atom Feed" />
+        <link href="http://sb2gh.github.io/feeds/gist.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Gist Category Atom Feed" />
+        <link href="http://sb2gh.github.io/feeds/graphs.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - graphs Category Atom Feed" />
+        <link href="http://sb2gh.github.io/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - misc Category Atom Feed" />
         <link href="http://sb2gh.github.io/feeds/orm.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - ORM Category Atom Feed" />
         <link href="http://sb2gh.github.io/feeds/pca.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - PCA Category Atom Feed" />
         <link href="http://sb2gh.github.io/feeds/pelican.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Pelican Category Atom Feed" />
+        <link href="http://sb2gh.github.io/feeds/r.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - R Category Atom Feed" />
         <link href="http://sb2gh.github.io/feeds/table.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - table Category Atom Feed" />
         <link href="http://sb2gh.github.io/feeds/virtualenv.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - virtualenv Category Atom Feed" />
 </head>
@@ -112,6 +117,63 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="panel-group" id="accordion role="tablist" aria-multiselectable="true"">
             <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-flask" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="flask-ref" data-target="#flask-ref">
+                    <a class="list-of-categories collapsed" href="#flask-ref">
+                        Flask<span>1</span>
+                    </a>
+                </div>
+                <div id="flask-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-flask">
+                    <div class="panel-body">
+                        <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2013-01-20T20:00:00-05:00">Sun 20 January 2013</time><a href="http://sb2gh.github.io/flask-v0.html">Website creation with Flask framework  </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-gist" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="gist-ref" data-target="#gist-ref">
+                    <a class="list-of-categories collapsed" href="#gist-ref">
+                        Gist<span>1</span>
+                    </a>
+                </div>
+                <div id="gist-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-gist">
+                    <div class="panel-body">
+                        <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2015-07-20T20:00:00-04:00">Mon 20 July 2015</time><a href="http://sb2gh.github.io/gists.html">Gists  </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-graphs" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="graphs-ref" data-target="#graphs-ref">
+                    <a class="list-of-categories collapsed" href="#graphs-ref">
+                        graphs<span>1</span>
+                    </a>
+                </div>
+                <div id="graphs-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-graphs">
+                    <div class="panel-body">
+                        <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2015-01-20T20:00:00-05:00">Tue 20 January 2015</time><a href="http://sb2gh.github.io/ml-graphs.html">Graphs in machine learning  </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-misc" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="misc-ref" data-target="#misc-ref">
+                    <a class="list-of-categories collapsed" href="#misc-ref">
+                        misc<span>2</span>
+                    </a>
+                </div>
+                <div id="misc-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-misc">
+                    <div class="panel-body">
+                        <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2014-07-12T20:00:00-04:00">Sat 12 July 2014</time><a href="http://sb2gh.github.io/sklearn-algo-cs-v0.html">Scikit learn algorithm cheat sheet  </a></li>
+                            <li><time pubdate="pubdate" datetime="2011-04-22T20:00:00-04:00">Fri 22 April 2011</time><a href="http://sb2gh.github.io/python-v0.html">Random python  </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="heading-orm" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="orm-ref" data-target="#orm-ref">
                     <a class="list-of-categories collapsed" href="#orm-ref">
                         ORM<span>1</span>
@@ -142,13 +204,28 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="heading-pelican" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="pelican-ref" data-target="#pelican-ref">
                     <a class="list-of-categories collapsed" href="#pelican-ref">
-                        Pelican<span>1</span>
+                        Pelican<span>2</span>
                     </a>
                 </div>
                 <div id="pelican-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-pelican">
                     <div class="panel-body">
                         <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2016-05-22T20:00:00-04:00">Sun 22 May 2016</time><a href="http://sb2gh.github.io/cmd-linux-osx-win.html">Useful commands on Linux, OSX, and Windows  </a></li>
                             <li><time pubdate="pubdate" datetime="2016-05-22T20:00:00-04:00">Sun 22 May 2016</time><a href="http://sb2gh.github.io/pelican-blog.html">Creating a Static Blog with Pelican and hosting it on github user pages  </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-r" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="r-ref" data-target="#r-ref">
+                    <a class="list-of-categories collapsed" href="#r-ref">
+                        R<span>1</span>
+                    </a>
+                </div>
+                <div id="r-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-r">
+                    <div class="panel-body">
+                        <ul class="list-articles-category">
+                            <li><time pubdate="pubdate" datetime="2011-01-20T20:00:00-05:00">Thu 20 January 2011</time><a href="http://sb2gh.github.io/r-v0.html">Random R  </a></li>
                         </ul>
                     </div>
                 </div>
@@ -176,7 +253,7 @@
                 <div id="virtualenv-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-virtualenv">
                     <div class="panel-body">
                         <ul class="list-articles-category">
-                            <li><time pubdate="pubdate" datetime="2014-05-15T20:00:00-04:00">Thu 15 May 2014</time><a href="http://sb2gh.github.io/virtualenv.html">Virtualenv and virtualenvwrapper  </a></li>
+                            <li><time pubdate="pubdate" datetime="2012-07-15T20:00:00-04:00">Sun 15 July 2012</time><a href="http://sb2gh.github.io/virtualenv.html">Virtualenv and virtualenvwrapper  </a></li>
                         </ul>
                     </div>
                 </div>

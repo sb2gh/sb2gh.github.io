@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="depuzzled" />
+<meta name="copyright" content="depuzzled" />
+
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="flask, python, Flask, flask, python, framework" />
+
+<meta property="og:title" content="Website creation with Flask framework "/>
+<meta property="og:url" content="http://sb2gh.github.io/flask-v0.html" />
+<meta property="og:description" content="Creating a website with Flask python framework" />
+<meta property="og:site_name" content="depuzzled blog" />
+<meta property="og:article:author" content="depuzzled" />
+<meta property="og:article:published_time" content="2013-01-20T20:00:00-05:00" />
+<meta property="" content="2013-01-20T22:00:00-05:00" />
+<meta name="twitter:title" content="Website creation with Flask framework ">
+<meta name="twitter:description" content="Creating a website with Flask python framework">
+
+<title>Website creation with Flask framework  · depuzzled blog
+</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="http://sb2gh.github.io/theme/css/style.min.css?08ebedde">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/jquery-ui.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/bootstrap-toc.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/custom.css" media="screen">
+<!--<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/base.css" media="screen">-->
+<!--<link rel="stylesheet" type="text/css" href="http://sb2gh.github.io/theme/css/main.css" media="screen">-->
+
+<style type="text/css">
+#nav2 {color:white;top:40px}; </style>
+<link rel="shortcut icon" type="image/x-icon" href="http://sb2gh.github.io/theme/images/favicon.ico">
+        <link href="http://sb2gh.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="depuzzled blog - Full Atom Feed" />
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<button type="button" class="navbar-toggle collapsed hidden-md" data-toggle="collapse" data-target="#nbtoc">nbtoc</button>-->
+                <a class="navbar-brand" href="http://sb2gh.github.io/"><span class=site-name>depuzzled blog</span></a>
+
+            </div>
+        <!--</div>-->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="http://sb2gh.github.io">Home</a></li>
+                    <li ><a href="http://sb2gh.github.io/categories.html">Categories</a></li>
+                    <li ><a href="http://sb2gh.github.io/tags.html">Tags</a></li>
+                    <li ><a href="http://sb2gh.github.io/archives.html">Archives</a></li>
+                    <li>
+                    <form class="navbar-form" role="search" action="http://sb2gh.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input">
+                    </form>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            </div>
+        </div>
+
+        <!-- </div><! /.container -->
+           <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar navbar-default navbar-fixed-top  hidden-md hidden-lg  affix" id="nav2">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#nbtoc">toc</button>
+                        <span class="sr-only">Toggle navigation</span>
+                    </div>
+                    <div class="collapse navbar-collapse nbtoc" id="nbtoc">
+                        <nav class="navbar-nav navbar-right  hidden-sm hidden-lg"  data-toggle="toc"></nav>
+                    </div>
+                </div>
+            </div>
+
+    
+
+ 
+    <div class="container">
+        <div class="row">
+
+            <!--<div class="col-xs-12">
+            <div id="test">testing</div>
+            <!--<div id="toc">toctesting</div> -->
+<article>
+<div class="row">
+    <header class="page-header col-md-10 col-md-offset-2">
+    <h1><a href="http://sb2gh.github.io/flask-v0.html"> Website creation with Flask framework  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <!-- <div id="bs-example-navbar-collapse-2"> -->
+    <div class="col-md-2 table-of-content visible-grid-float-breakpoint">
+    <!-- <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <! Brand and toggle get grouped for better mobile display -->
+            <!-- <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!<a class="navbar-brand" href="http://sb2gh.github.io/"><span class=site-name>depuzzled blog</span></a> -->
+            <!-- </div> -->
+
+        <!-- <div class="affix nav navbar-nav navbar-right collapse navbar-collapse" id="toc"><! navigation-menu-toc"><!"affix">-->
+        <!--<h4>Contents</h4>-->
+            <nav class="affix navbar-nav navbar-right nav2 hidden-xs hidden-sm "  id="toc" data-toggle="toc"> <!--id="toc-affix" class="collapse navbar-collapse affix"> -->
+            <h4>Contents</h4>
+                <div class=""><!--collapse navbar-collapse">-->
+                    <div class="toc">
+                        <div >
+                <!--<h4>Contents</h4>-->
+                <!--<div class="toc">
+<ul>
+<li><a href="#environment-set-up">Environment set-up</a></li>
+<li><a href="#hello-world">Hello World!</a></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#forms">Forms</a></li>
+<li><a href="#main-flask-decorators">Main Flask decorators</a></li>
+<li><a href="#context-application">Context Application</a></li>
+<li><a href="#helper-functions">Helper functions</a></li>
+<li><a href="#large-project">Large project</a></li>
+<li><a href="#bootstrap">Bootstrap</a></li>
+<li><a href="#creating-links">Creating links</a></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#problem-reload-server">Problem reload server</a></li>
+<li><a href="#pip-install">Pip install</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+</div> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        <!--</div>-->
+        <!--</div> -->
+    </div>
+    <!--</nav> -->
+    <div class="col-md-8 el-article-content">
+
+            
+            
+<h2 id="environment-set-up">Environment set-up<a class="headerlink" href="#environment-set-up" title="Permanent link">¶</a></h2>
+<p>First create a folder where we are going to have all our files for the application</p>
+<div class="highlight"><pre><span></span>bm@Work ~ -  $ mkdir flsk
+bm@Work ~ -  $ cd flsk
+</pre></div>
+<p>We then create a virtualenv that will contains all the necessary packages for flask.</p>
+<div class="highlight"><pre><span></span>bm@Work ~/flsk -  $ mkvirtualenv venv-flask
+bm@Work ~/flsk -  $ source ~/.virtualenvs/venv-flask/bin/activate
+</pre></div>
+<p>Make sure that PYTHONPATH is empty, otherwise the new python will use global module as well.</p>
+<div class="highlight"><pre><span></span>export PYTHONPATH=''
+</pre></div>
+<p>We can now install flask</p>
+<div class="highlight"><pre><span></span>(venv-flask) bm@Work ~/flsk -  $ pip install flask
+</pre></div>
+<p>Once flask is installed, when we enter <code>pip freeze</code> we should see something like this:  </p>
+<div class="highlight"><pre><span></span>click==6.6
+Flask==0.11.1
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+Werkzeug==0.11.10
+</pre></div>
+<p><br/></p>
+<h2 id="hello-world">Hello World!<a class="headerlink" href="#hello-world" title="Permanent link">¶</a></h2>
+<p>We create the basic file app.py  </p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+<p>We can now launch our app: <code>python app.py</code><br/>
+We can see our website at: <code>localhost:5000</code> </p>
+<p>Notes:<br/>
+1. The default port is 5000<br/>
+2. In order to have the app seen outside the local computer we change <code>app.run(debug=True)</code> by <code>app.run(host='0.0.0.0', port=5000, debug=True)</code>.  If you are testing on another computer on the same network, in order to see the ip to put in the address bar, you can run ifconfig </p>
+<p><br/></p>
+<h2 id="template">Template<a class="headerlink" href="#template" title="Permanent link">¶</a></h2>
+<p>HTML templates should be created in order to dissociate models from views.  Flask will recognize these templates.  We just need to create a folder named <code>templates</code> at the root of our app folder.<br/>
+We can then create for instance an index.html such as:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>v0<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> paragraph<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Let's go to product details <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">url_for</span><span class="o">(</span><span class="s1">'product'</span><span class="o">,</span> <span class="nv">id</span><span class="o">=</span><span class="m">0</span><span class="o">)</span><span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span>here<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Note:<br/>
+1. we have included a link in the body by using the function <code>url_for</code>.  It will redirect to the page <code>product.html/0</code>.<br/>
+2. We need to modify the include statement at the beginning to <code>from flask import Flask, render_template, url_for</code> </p>
+<p><br/></p>
+<h2 id="forms">Forms<a class="headerlink" href="#forms" title="Permanent link">¶</a></h2>
+<p>Form can be implemented in regular html but it is much easier to use the package <code>flask-wtf</code>.  To install: <code>pip install flask-wtf</code>.  Installing this will also help avoiding CSRF (cross-site-request-forgery) attacks.<br/>
+We need to update our included packages.  We will add the following includes (if we plan for example to use a radiofield and a submitfield):</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask_wtf</span> <span class="kn">import</span> <span class="n">Form</span>
+<span class="kn">from</span> <span class="nn">wtforms.fields</span> <span class="kn">import</span> <span class="n">RadioField</span><span class="p">,</span> <span class="n">SubmitField</span>
+</pre></div>
+<p><br/></p>
+<h2 id="main-flask-decorators">Main Flask decorators<a class="headerlink" href="#main-flask-decorators" title="Permanent link">¶</a></h2>
+<ol>
+<li><code>route</code>: registers function to handle routes</li>
+<li><code>before_request</code>: registers a function to run prior any request handlers</li>
+<li><code>before_first_request</code>: only once at the start</li>
+<li><code>after_request</code>: ...</li>
+<li><code>teardown_request</code>: after request handlers - even in case of exception thrown</li>
+<li><code>errorhandler</code>: custom error handler</li>
+</ol>
+<p><br/></p>
+<h2 id="context-application">Context Application<a class="headerlink" href="#context-application" title="Permanent link">¶</a></h2>
+<p>current_app<br/>
+g<br/>
+request<br/>
+session  </p>
+<p><br/></p>
+<h2 id="helper-functions">Helper functions<a class="headerlink" href="#helper-functions" title="Permanent link">¶</a></h2>
+<ol>
+<li><code>url_for()</code>: generates links to route or static files</li>
+<li><code>render_template()</code>: renders jinja2 templates</li>
+<li><code>redirect()</code>: generates a redirect response</li>
+<li><code>jsonify()</code>: generates a json response</li>
+<li><code>abort()</code>: generates an error response</li>
+<li><code>flash()</code>: registers a message to display</li>
+</ol>
+<p><br/></p>
+<h2 id="large-project">Large project<a class="headerlink" href="#large-project" title="Permanent link">¶</a></h2>
+<p>In large project it is easier to have a similar to the following tree structure (see Miguel Greenberg):</p>
+<div class="highlight"><pre><span></span>├── app/
+├── config.py
+├── manage.py
+├── requirements.txt
+└── tests/
+</pre></div>
+<p>Inside app folder:</p>
+<div class="highlight"><pre><span></span>├── __init__.py
+├── emails.py
+├── models.py      # database models
+├── static/
+├── appblueprint/
+└── templates/
+    └── mainblueprinttemplate/
+</pre></div>
+<p><br/></p>
+<h2 id="bootstrap">Bootstrap<a class="headerlink" href="#bootstrap" title="Permanent link">¶</a></h2>
+<p>{% extends "bootstrap/base.html" %}</p>
+<p><br/></p>
+<h2 id="creating-links">Creating links<a class="headerlink" href="#creating-links" title="Permanent link">¶</a></h2>
+<p>Routes created with @app.route -&gt; <code>url_for('index')</code><br/>
+Blueprint routes -&gt; <code>url_for('bluepr.index')
+Blueprint name not given in context -&gt;</code>url_for('.index')<code>Static files -&gt;</code>url_for('static', filename='style.css')`</p>
+<p><br>
+<br/></br></p>
+<h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
+<h3 id="problem-reload-server">Problem reload server<a class="headerlink" href="#problem-reload-server" title="Permanent link">¶</a></h3>
+<p>Sometimes there are sockets still running, so we need to kill the server before relaunch. Assuming the server runs on port 5000: <br/>
+<code>lsof -n -i4TCP:5000 | grep LISTEN</code><br/>
+Get the process id (PID) and kill it, then relaunch:<br/>
+<code>kill -9 pidnumber</code></p>
+<h3 id="pip-install">Pip install<a class="headerlink" href="#pip-install" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span>pip install flask
+pip install flask-script
+pip install flask-bootstrap
+pip install flask-sqlalchemy
+pip install flask-wtf
+pip install flask-login
+pip install flask-moment # extension that simplifies the use of moment.js to render dates
+pip install flask-pagedown # renders markdown live in the browser
+pip install markdown bleach
+</pre></div>
+<p><br/></p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<p><a href="https://github.com/mjhea0/awesome-flask">https://github.com/mjhea0/awesome-flask</a></p>
+<p><br>
+<br/></br></p>
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="http://twitter.com/home?status=Website%20creation%20with%20Flask%20framework%20%20http%3A//sb2gh.github.io/flask-v0.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/flask-v0.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/flask-v0.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=Website%20creation%20with%20Flask%20framework%20&amp;body=http%3A//sb2gh.github.io/flask-v0.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                    data-disqus-identifier="2189d14-flask-v0"
+                href="http://sb2gh.github.io/flask-v0.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'blogdepuzzled';
+        var disqus_identifier = '2189d14-flask-v0';
+    var disqus_url = 'http://sb2gh.github.io/flask-v0.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://sb2gh.github.io/python-v0.html" title="Random python">Random python</a></li>
+<li><a href="http://sb2gh.github.io/sklearn-algo-cs-v0.html" title="Scikit learn algorithm cheat sheet">Scikit learn algorithm cheat sheet</a></li>
+<li><a href="http://sb2gh.github.io/ml-graphs.html" title="Graphs in machine learning">Graphs in machine learning</a></li>
+<li><a href="http://sb2gh.github.io/gists.html" title="Gists">Gists</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://sb2gh.github.io/virtualenv.html" title="Previous: Virtualenv and virtualenvwrapper">Virtualenv and virtualenvwrapper</a></li>
+                <li class="next-article"><a href="http://sb2gh.github.io/sklearn-algo-cs-v0.html" title="Next: Scikit learn algorithm cheat sheet">Scikit learn algorithm cheat sheet</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-01-20T20:00:00-05:00">Jan 20, 2013</time>
+
+<h4>Last Updated</h4>
+<time datetime="2013-01-20T22:00:00-05:00">Jan 20, 2013</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://sb2gh.github.io/categories.html#flask-ref">Flask</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://sb2gh.github.io/tags.html#flask-ref">flask
+                    <span>1</span>
+</a></li>
+                <li><a href="http://sb2gh.github.io/tags.html#python-ref">python
+                    <span>5</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+        </div>
+    </div>
+
+<footer>
+    <div class="container">
+    
+
+
+
+        <div class=col-md-12>
+            Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a>
+        </div>
+
+    </div>
+</footer>    <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery-ui.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/jquery.tocify.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/bootstrap-toc.js"></script>
+<script src="http://sb2gh.github.io/theme/tipuesearch/test.js"></script>
+<script>
+function validateForm(query)
+{
+    return (query.length > 0);
+}
+</script>
+
+<script type="text/javascript">
+    myf();
+</script>
+ <script>
+//$(window).bind("load", function() {
+    //document.getElementById("toc").innerHTML = 'fdaf';
+//   $("#toc").tocify();
+//});
+//$(document).ready({
+              //$(function() {
+                  //Calls the tocify method on your HTML div.
+                  //$("#toc").tocify();
+             // });
+</script>   
+
+            <script type="text/javascript">
+var disqus_shortname = 'blogdepuzzled';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+
+</body>
+<!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

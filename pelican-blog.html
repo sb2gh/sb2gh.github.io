@@ -143,6 +143,7 @@
 <li><a href="#hosting-on-github-user-pages">Hosting on github user pages</a></li>
 <li><a href="#using-custom-domain">Using custom domain</a></li>
 <li><a href="#adding-jupyter-notebooks">Adding jupyter notebooks</a></li>
+<li><a href="#adding-gist-to-blog">Adding gist to blog</a></li>
 <li><a href="#appendix">Appendix</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -222,7 +223,7 @@ Done. Your new project is available at /Users/bm/webblog
 We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: <a href="https://github.com/getpelican/pelican-plugins.git">https://github.com/getpelican/pelican-plugins.git</a>.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.<br/>
 <br>
 Once the theme and plugins are installed at the root of our blog, we need to edit the <em>pelicanconf.py</em> file to add the following information:</br></br></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<table class="table highlighttable table-striped table-hover"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">THEME</span> <span class="o">=</span> <span class="s1">'themes/elegant'</span>
@@ -250,6 +251,10 @@ We can now look at the blog at <em>username.github.io</em></p>
 <p><br/></p>
 <h2 id="adding-jupyter-notebooks">Adding jupyter notebooks<a class="headerlink" href="#adding-jupyter-notebooks" title="Permanent link">¶</a></h2>
 <p>It is straightforward to add a jupyter notebook thanks to a plugin found at <a href="https://github.com/danielfrg/pelican-ipynb">https://github.com/danielfrg/pelican-ipynb</a>.  The instructions are clear and simple.</p>
+<p><br/></p>
+<h2 id="adding-gist-to-blog">Adding gist to blog<a class="headerlink" href="#adding-gist-to-blog" title="Permanent link">¶</a></h2>
+<p>Install pelican-gist: <em>pip install pelican-gist</em>
+Update config file: <em>PLUGINS = [...'pelican_gist', ...]</em></p>
 <p><br>
 <br/></br></p>
 <h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
@@ -330,6 +335,7 @@ We can now look at the blog at <em>username.github.io</em></p>
             <nav>
             <ul class="articles-timeline">
                 <li class="previous-article">« <a href="http://sb2gh.github.io/pca.html" title="Previous: PCA scikit-learn">PCA scikit-learn</a></li>
+                <li class="next-article"><a href="http://sb2gh.github.io/cmd-linux-osx-win.html" title="Next: Useful commands on Linux, OSX, and Windows">Useful commands on Linux, OSX, and Windows</a> »</li>
             </ul>
             </nav>
             </aside>

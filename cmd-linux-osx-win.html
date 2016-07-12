@@ -10,19 +10,19 @@
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="virtualenv, virtualenvwrapper, virtualenv, virtualenv, virtualenvwrapper" />
+<meta name="keywords" content="command, linux, osx, win, Pelican, cmd, linux, osx, win" />
 
-<meta property="og:title" content="Virtualenv and virtualenvwrapper "/>
-<meta property="og:url" content="http://sb2gh.github.io/virtualenv.html" />
-<meta property="og:description" content="Creating a clean environment for python development" />
+<meta property="og:title" content="Useful commands on Linux, OSX, and Windows "/>
+<meta property="og:url" content="http://sb2gh.github.io/cmd-linux-osx-win.html" />
+<meta property="og:description" content="Useful commands on Linux, OSX, and Windows" />
 <meta property="og:site_name" content="depuzzled blog" />
 <meta property="og:article:author" content="depuzzled" />
-<meta property="og:article:published_time" content="2012-07-15T20:00:00-04:00" />
-<meta property="" content="2012-07-15T22:00:00-04:00" />
-<meta name="twitter:title" content="Virtualenv and virtualenvwrapper ">
-<meta name="twitter:description" content="Creating a clean environment for python development">
+<meta property="og:article:published_time" content="2016-05-22T20:00:00-04:00" />
+<meta property="" content="2016-05-22T22:00:00-04:00" />
+<meta name="twitter:title" content="Useful commands on Linux, OSX, and Windows ">
+<meta name="twitter:description" content="Useful commands on Linux, OSX, and Windows">
 
-<title>Virtualenv and virtualenvwrapper  · depuzzled blog
+<title>Useful commands on Linux, OSX, and Windows  · depuzzled blog
 </title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -103,7 +103,7 @@
 <article>
 <div class="row">
     <header class="page-header col-md-10 col-md-offset-2">
-    <h1><a href="http://sb2gh.github.io/virtualenv.html"> Virtualenv and virtualenvwrapper  </a></h1>
+    <h1><a href="http://sb2gh.github.io/cmd-linux-osx-win.html"> Useful commands on Linux, OSX, and Windows  </a></h1>
     </header>
 </div>
 
@@ -133,8 +133,9 @@
                 <!--<h4>Contents</h4>-->
                 <!--<div class="toc">
 <ul>
-<li><a href="#virtualenv">Virtualenv</a></li>
-<li><a href="#virtualenvwrapper">Virtualenvwrapper</a></li>
+<li><a href="#who-is-listening-on-a-tcp-port">Who is listening on a TCP port</a></li>
+<li><a href="#blabla">blabla</a></li>
+<li><a href="#appendix">Appendix</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div> -->
@@ -150,50 +151,60 @@
 
             
             
-<h2 id="virtualenv">Virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">¶</a></h2>
-<p>Virtualenv allows the creation of different python projects with each different requirement. Some of these requirements can conflict between each other. Virtualenv solves these problems by allowing the user to create specific python environment for each project.<br/>
-Set up:</p>
-<ol>
-<li>Download: <code>pip install virtualenv</code></li>
-<li>Log into project folder: <code>cd ~/proj</code></li>
-<li>Create virtualenv (python executable + pip): <code>virtualenv venv</code></li>
-<li>Start using virtual env: <code>source env/bin/activate</code></li>
-<li><code>~/proj/env/bin/pip freeze &gt; ~/proj/requirements.txt</code> (this will allow anyone to recreate the virtual env easily by running: pip install –r requirements.txt)</li>
-</ol>
-<p>Notes:</p>
-<ul>
-<li>you can also specify the python interpreter: <code>virtualenv –p /usr/bin/bython2.7 venv</code></li>
-<li>you should also exclude the virtual env folder from your source control by adding this folder to the ignore file (i.e., “.gitignore”)</li>
-</ul>
+<p>Useful commands on Linux, OSX, and Windows</p>
 <p><br/></p>
-<h2 id="virtualenvwrapper">Virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">¶</a></h2>
-<p>virtualenvwrapper simplify the use of virtual environments.  All the virtual environments will be stored in the same folder.</p>
-<p>Install virtualenvwrapper: <code>pip install virtualenvwrapper</code>
-Create folder where all virtual environments will be stored: <code>export WORKON_HOME=~/VirtEnvs</code>
-Reload: <code>source /usr/local/bin/virtualenvwrapper.sh</code>
-Create a new environment: <code>mkvirtualenv venv-test</code>
-Remove virtual env: <code>rmvirtualenv venv-test</code>
-List all of the venvs: <code>lsvirtualenv</code>
-Go to directory of current venv: <code>cdvirtualenv</code>
-Show contents of site-packages directory: <code>lssitepackages</code>
-If install from requirements to continue if a package fails: 
-<code>cat requirements.txt | while read PACKAGE; do pip install "$PACKAGE"; done</code></p>
+<h2 id="who-is-listening-on-a-tcp-port">Who is listening on a TCP port<a class="headerlink" href="#who-is-listening-on-a-tcp-port" title="Permanent link">¶</a></h2>
+<table class="table table-hover table-striped">
+<thead>
+<tr>
+<th>linux</th>
+<th>osx</th>
+<th>windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>netstat -tupln | grep ':5000'</td>
+<td>sudo lsof -n -i:$PORT</td>
+<td>grep LISTEN | grep LISTEN</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h2 id="blabla">blabla<a class="headerlink" href="#blabla" title="Permanent link">¶</a></h2>
+<p>Here is the tree structure (brew tree; tree -L 1)</p>
+<p><br>
+<br/></br></p>
+<h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">¶</a></h2>
 <p><br/></p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
-<p><a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">http://docs.python-guide.org/en/latest/dev/virtualenvs/</a>
-<a href="https://virtualenvwrapper.readthedocs.io/en/latest/">https://virtualenvwrapper.readthedocs.io/en/latest/</a></p>
+<p><a href="http://simonsblog.co.uk/static-site-generator-pelican.html">http://simonsblog.co.uk/static-site-generator-pelican.html</a><br/>
+<a href="https://github.com/noirbizarre/pelican-social">https://github.com/noirbizarre/pelican-social</a><br/>
+<a href="https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools">https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools</a><br/>
+<a href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican">https://github.com/getpelican/pelican/wiki/Powered-by-Pelican</a><br/>
+<a href="http://blog.getpelican.com/author/kyle-fuller.html">http://blog.getpelican.com/author/kyle-fuller.html</a><br/>
+<a href="http://oncrashreboot.com/elegant-best-pelican-theme-features">http://oncrashreboot.com/elegant-best-pelican-theme-features</a><br/>
+<a href="http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html">http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html</a><br/>
+<a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/">https://fedoramagazine.org/make-github-pages-blog-with-pelican/</a><br/>
+<a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">http://mathamy.com/migrating-to-github-pages-using-pelican.html</a><br/>
+<a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/">http://terriyu.info/blog/posts/2013/07/pelican-setup/</a><br/>
+<a href="http://nafiulis.me/making-a-static-blog-with-pelican.html">http://nafiulis.me/making-a-static-blog-with-pelican.html</a><br/>
+<a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html">http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html</a><br/>
+<a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html">http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html</a><br/>
+<a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html">http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html</a><br/>
+<a href="https://github.com/danielfrg/pelican-ipynb">https://github.com/danielfrg/pelican-ipynb</a></p>
 <p><br>
 <br/></br></p>
             <section>
     <p id="post-share-links">
     Share on:
-    <a href="http://twitter.com/home?status=Virtualenv%20and%20virtualenvwrapper%20%20http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="http://twitter.com/home?status=Useful%20commands%20on%20Linux%2C%20OSX%2C%20and%20Windows%20%20http%3A//sb2gh.github.io/cmd-linux-osx-win.html" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/cmd-linux-osx-win.html" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Google Plus">Google+</a>
+    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/cmd-linux-osx-win.html" target="_blank" title="Share on Google Plus">Google+</a>
     ❄
-    <a href="mailto:?subject=Virtualenv%20and%20virtualenvwrapper%20&amp;body=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=Useful%20commands%20on%20Linux%2C%20OSX%2C%20and%20Windows%20&amp;body=http%3A//sb2gh.github.io/cmd-linux-osx-win.html" target="_blank" title="Share via Email">Email</a>
     </p>
 </section>
 
@@ -202,8 +213,8 @@ If install from requirements to continue if a package fails:
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                    data-disqus-identifier="2189d15-virtualenv"
-                href="http://sb2gh.github.io/virtualenv.html#disqus_thread">
+                    data-disqus-identifier="2189d14-cmd-linux-osx-win"
+                href="http://sb2gh.github.io/cmd-linux-osx-win.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -213,8 +224,8 @@ If install from requirements to continue if a package fails:
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'blogdepuzzled';
-        var disqus_identifier = '2189d15-virtualenv';
-    var disqus_url = 'http://sb2gh.github.io/virtualenv.html';
+        var disqus_identifier = '2189d14-cmd-linux-osx-win';
+    var disqus_url = 'http://sb2gh.github.io/cmd-linux-osx-win.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -236,8 +247,7 @@ If install from requirements to continue if a package fails:
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://sb2gh.github.io/python-v0.html" title="Previous: Random python">Random python</a></li>
-                <li class="next-article"><a href="http://sb2gh.github.io/flask-v0.html" title="Next: Website creation with Flask framework">Website creation with Flask framework</a> »</li>
+                <li class="previous-article">« <a href="http://sb2gh.github.io/pelican-blog.html" title="Previous: Creating a Static Blog with Pelican and hosting it on github user pages">Creating a Static Blog with Pelican and hosting it on github user pages</a></li>
             </ul>
             </nav>
             </aside>
@@ -245,19 +255,25 @@ If install from requirements to continue if a package fails:
         <section>
         <div class="col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2012-07-15T20:00:00-04:00">Jul 15, 2012</time>
+            <time pubdate="pubdate" datetime="2016-05-22T20:00:00-04:00">May 22, 2016</time>
 
 <h4>Last Updated</h4>
-<time datetime="2012-07-15T22:00:00-04:00">Jul 15, 2012</time>
+<time datetime="2016-05-22T22:00:00-04:00">May 22, 2016</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="http://sb2gh.github.io/categories.html#virtualenv-ref">virtualenv</a>
+            <a class="category-link" href="http://sb2gh.github.io/categories.html#pelican-ref">Pelican</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://sb2gh.github.io/tags.html#virtualenv-ref">virtualenv
+                <li><a href="http://sb2gh.github.io/tags.html#command-ref">command
                     <span>1</span>
 </a></li>
-                <li><a href="http://sb2gh.github.io/tags.html#virtualenvwrapper-ref">virtualenvwrapper
+                <li><a href="http://sb2gh.github.io/tags.html#linux-ref">linux
+                    <span>1</span>
+</a></li>
+                <li><a href="http://sb2gh.github.io/tags.html#osx-ref">osx
+                    <span>1</span>
+</a></li>
+                <li><a href="http://sb2gh.github.io/tags.html#win-ref">win
                     <span>1</span>
 </a></li>
             </ul>

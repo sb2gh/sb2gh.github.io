@@ -10,19 +10,19 @@
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="virtualenv, virtualenvwrapper, virtualenv, virtualenv, virtualenvwrapper" />
+<meta name="keywords" content="python, misc, python" />
 
-<meta property="og:title" content="Virtualenv and virtualenvwrapper "/>
-<meta property="og:url" content="http://sb2gh.github.io/virtualenv.html" />
-<meta property="og:description" content="Creating a clean environment for python development" />
+<meta property="og:title" content="Random python "/>
+<meta property="og:url" content="http://sb2gh.github.io/python-v0.html" />
+<meta property="og:description" content="A few python features" />
 <meta property="og:site_name" content="depuzzled blog" />
 <meta property="og:article:author" content="depuzzled" />
-<meta property="og:article:published_time" content="2012-07-15T20:00:00-04:00" />
-<meta property="" content="2012-07-15T22:00:00-04:00" />
-<meta name="twitter:title" content="Virtualenv and virtualenvwrapper ">
-<meta name="twitter:description" content="Creating a clean environment for python development">
+<meta property="og:article:published_time" content="2011-04-22T20:00:00-04:00" />
+<meta property="" content="2011-07-23T22:00:00-04:00" />
+<meta name="twitter:title" content="Random python ">
+<meta name="twitter:description" content="A few python features">
 
-<title>Virtualenv and virtualenvwrapper  · depuzzled blog
+<title>Random python  · depuzzled blog
 </title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -103,7 +103,7 @@
 <article>
 <div class="row">
     <header class="page-header col-md-10 col-md-offset-2">
-    <h1><a href="http://sb2gh.github.io/virtualenv.html"> Virtualenv and virtualenvwrapper  </a></h1>
+    <h1><a href="http://sb2gh.github.io/python-v0.html"> Random python  </a></h1>
     </header>
 </div>
 
@@ -133,9 +133,13 @@
                 <!--<h4>Contents</h4>-->
                 <!--<div class="toc">
 <ul>
-<li><a href="#virtualenv">Virtualenv</a></li>
-<li><a href="#virtualenvwrapper">Virtualenvwrapper</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#basic-stuff">Basic stuff</a><ul>
+<li><a href="#if-__name__-__main__">if __name__ == "__main__"</a></li>
+</ul>
+</li>
+<li><a href="#class">Class</a></li>
+<li><a href="#super">Super</a></li>
+<li><a href="#decorator">Decorator</a></li>
 </ul>
 </div> -->
                         </div>
@@ -150,50 +154,23 @@
 
             
             
-<h2 id="virtualenv">Virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">¶</a></h2>
-<p>Virtualenv allows the creation of different python projects with each different requirement. Some of these requirements can conflict between each other. Virtualenv solves these problems by allowing the user to create specific python environment for each project.<br/>
-Set up:</p>
-<ol>
-<li>Download: <code>pip install virtualenv</code></li>
-<li>Log into project folder: <code>cd ~/proj</code></li>
-<li>Create virtualenv (python executable + pip): <code>virtualenv venv</code></li>
-<li>Start using virtual env: <code>source env/bin/activate</code></li>
-<li><code>~/proj/env/bin/pip freeze &gt; ~/proj/requirements.txt</code> (this will allow anyone to recreate the virtual env easily by running: pip install –r requirements.txt)</li>
-</ol>
-<p>Notes:</p>
-<ul>
-<li>you can also specify the python interpreter: <code>virtualenv –p /usr/bin/bython2.7 venv</code></li>
-<li>you should also exclude the virtual env folder from your source control by adding this folder to the ignore file (i.e., “.gitignore”)</li>
-</ul>
-<p><br/></p>
-<h2 id="virtualenvwrapper">Virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">¶</a></h2>
-<p>virtualenvwrapper simplify the use of virtual environments.  All the virtual environments will be stored in the same folder.</p>
-<p>Install virtualenvwrapper: <code>pip install virtualenvwrapper</code>
-Create folder where all virtual environments will be stored: <code>export WORKON_HOME=~/VirtEnvs</code>
-Reload: <code>source /usr/local/bin/virtualenvwrapper.sh</code>
-Create a new environment: <code>mkvirtualenv venv-test</code>
-Remove virtual env: <code>rmvirtualenv venv-test</code>
-List all of the venvs: <code>lsvirtualenv</code>
-Go to directory of current venv: <code>cdvirtualenv</code>
-Show contents of site-packages directory: <code>lssitepackages</code>
-If install from requirements to continue if a package fails: 
-<code>cat requirements.txt | while read PACKAGE; do pip install "$PACKAGE"; done</code></p>
-<p><br/></p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
-<p><a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">http://docs.python-guide.org/en/latest/dev/virtualenvs/</a>
-<a href="https://virtualenvwrapper.readthedocs.io/en/latest/">https://virtualenvwrapper.readthedocs.io/en/latest/</a></p>
-<p><br>
-<br/></br></p>
+<h2 id="basic-stuff">Basic stuff<a class="headerlink" href="#basic-stuff" title="Permanent link">¶</a></h2>
+<h4 id="if-__name__-__main__"><code>if __name__ == "__main__"</code><a class="headerlink" href="#if-__name__-__main__" title="Permanent link">¶</a></h4>
+<p>It allows both a python script to be run on its own or be used as an import into another script. Indeed, if we import the python script and call for instance a function inside of that module, the variable <code>__name__</code> will be equal to the module name.</p>
+<h2 id="class">Class<a class="headerlink" href="#class" title="Permanent link">¶</a></h2>
+<p>a variable with an underscore <code>_</code> in front of it is private</p>
+<h2 id="super">Super<a class="headerlink" href="#super" title="Permanent link">¶</a></h2>
+<h2 id="decorator">Decorator<a class="headerlink" href="#decorator" title="Permanent link">¶</a></h2>
             <section>
     <p id="post-share-links">
     Share on:
-    <a href="http://twitter.com/home?status=Virtualenv%20and%20virtualenvwrapper%20%20http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="http://twitter.com/home?status=Random%20python%20%20http%3A//sb2gh.github.io/python-v0.html" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//sb2gh.github.io/python-v0.html" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share on Google Plus">Google+</a>
+    <a href="https://plus.google.com/share?url=http%3A//sb2gh.github.io/python-v0.html" target="_blank" title="Share on Google Plus">Google+</a>
     ❄
-    <a href="mailto:?subject=Virtualenv%20and%20virtualenvwrapper%20&amp;body=http%3A//sb2gh.github.io/virtualenv.html" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=Random%20python%20&amp;body=http%3A//sb2gh.github.io/python-v0.html" target="_blank" title="Share via Email">Email</a>
     </p>
 </section>
 
@@ -202,8 +179,8 @@ If install from requirements to continue if a package fails:
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                    data-disqus-identifier="2189d15-virtualenv"
-                href="http://sb2gh.github.io/virtualenv.html#disqus_thread">
+                    data-disqus-identifier="2189d14-python-v0"
+                href="http://sb2gh.github.io/python-v0.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -213,8 +190,8 @@ If install from requirements to continue if a package fails:
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'blogdepuzzled';
-        var disqus_identifier = '2189d15-virtualenv';
-    var disqus_url = 'http://sb2gh.github.io/virtualenv.html';
+        var disqus_identifier = '2189d14-python-v0';
+    var disqus_url = 'http://sb2gh.github.io/python-v0.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -233,11 +210,21 @@ If install from requirements to continue if a package fails:
 </section>
 
             <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://sb2gh.github.io/flask-v0.html" title="Website creation with Flask framework">Website creation with Flask framework</a></li>
+<li><a href="http://sb2gh.github.io/sklearn-algo-cs-v0.html" title="Scikit learn algorithm cheat sheet">Scikit learn algorithm cheat sheet</a></li>
+<li><a href="http://sb2gh.github.io/ml-graphs.html" title="Graphs in machine learning">Graphs in machine learning</a></li>
+<li><a href="http://sb2gh.github.io/gists.html" title="Gists">Gists</a></li>
+</ul>
+<hr />
+</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://sb2gh.github.io/python-v0.html" title="Previous: Random python">Random python</a></li>
-                <li class="next-article"><a href="http://sb2gh.github.io/flask-v0.html" title="Next: Website creation with Flask framework">Website creation with Flask framework</a> »</li>
+                <li class="previous-article">« <a href="http://sb2gh.github.io/r-v0.html" title="Previous: Random R">Random R</a></li>
+                <li class="next-article"><a href="http://sb2gh.github.io/virtualenv.html" title="Next: Virtualenv and virtualenvwrapper">Virtualenv and virtualenvwrapper</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -245,20 +232,17 @@ If install from requirements to continue if a package fails:
         <section>
         <div class="col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2012-07-15T20:00:00-04:00">Jul 15, 2012</time>
+            <time pubdate="pubdate" datetime="2011-04-22T20:00:00-04:00">Apr 22, 2011</time>
 
 <h4>Last Updated</h4>
-<time datetime="2012-07-15T22:00:00-04:00">Jul 15, 2012</time>
+<time datetime="2011-07-23T22:00:00-04:00">Jul 23, 2011</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="http://sb2gh.github.io/categories.html#virtualenv-ref">virtualenv</a>
+            <a class="category-link" href="http://sb2gh.github.io/categories.html#misc-ref">misc</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://sb2gh.github.io/tags.html#virtualenv-ref">virtualenv
-                    <span>1</span>
-</a></li>
-                <li><a href="http://sb2gh.github.io/tags.html#virtualenvwrapper-ref">virtualenvwrapper
-                    <span>1</span>
+                <li><a href="http://sb2gh.github.io/tags.html#python-ref">python
+                    <span>5</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

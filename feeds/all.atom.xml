@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-22T22:00:00-04:00</updated><entry><title>Creating a Static Blog with Pelican and hosting it on github user pages</title><link href="http://sb2gh.github.io/pelican-blog.html" rel="alternate"></link><published>2016-05-22T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-22:pelican-blog.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>depuzzled blog</title><link href="http://sb2gh.github.io/" rel="alternate"></link><link href="http://sb2gh.github.io/feeds/all.atom.xml" rel="self"></link><id>http://sb2gh.github.io/</id><updated>2016-05-22T22:00:00-04:00</updated><entry><title>Useful commands on Linux, OSX, and Windows</title><link href="http://sb2gh.github.io/cmd-linux-osx-win.html" rel="alternate"></link><published>2016-05-22T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-22:cmd-linux-osx-win.html</id><summary type="html">
+&lt;p&gt;Useful commands on Linux, OSX, and Windows&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="who-is-listening-on-a-tcp-port"&gt;Who is listening on a TCP port&lt;a class="headerlink" href="#who-is-listening-on-a-tcp-port" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="table table-hover table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;linux&lt;/th&gt;
+&lt;th&gt;osx&lt;/th&gt;
+&lt;th&gt;windows&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;netstat -tupln | grep ':5000'&lt;/td&gt;
+&lt;td&gt;sudo lsof -n -i:$PORT&lt;/td&gt;
+&lt;td&gt;grep LISTEN | grep LISTEN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="blabla"&gt;blabla&lt;a class="headerlink" href="#blabla" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is the tree structure (brew tree; tree -L 1)&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://simonsblog.co.uk/static-site-generator-pelican.html"&gt;http://simonsblog.co.uk/static-site-generator-pelican.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="https://github.com/noirbizarre/pelican-social"&gt;https://github.com/noirbizarre/pelican-social&lt;/a&gt;&lt;br/&gt;
+&lt;a href="https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools"&gt;https://github.com/getpelican/pelican/wiki/Externally-hosted-plugins-and-tools&lt;/a&gt;&lt;br/&gt;
+&lt;a href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican"&gt;https://github.com/getpelican/pelican/wiki/Powered-by-Pelican&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://blog.getpelican.com/author/kyle-fuller.html"&gt;http://blog.getpelican.com/author/kyle-fuller.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://oncrashreboot.com/elegant-best-pelican-theme-features"&gt;http://oncrashreboot.com/elegant-best-pelican-theme-features&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html"&gt;http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/"&gt;https://fedoramagazine.org/make-github-pages-blog-with-pelican/&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;http://mathamy.com/migrating-to-github-pages-using-pelican.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://terriyu.info/blog/posts/2013/07/pelican-setup/"&gt;http://terriyu.info/blog/posts/2013/07/pelican-setup/&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://nafiulis.me/making-a-static-blog-with-pelican.html"&gt;http://nafiulis.me/making-a-static-blog-with-pelican.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html"&gt;http://vuongnguyen.com/creating-blog-python-virtualenv-pelican.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html"&gt;http://www.notionsandnotes.org/tech/web-development/pelican-static-blog-setup.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html"&gt;http://doctrina.org/Plugin-For-Pelican-To-Enable-Latex.html&lt;/a&gt;&lt;br/&gt;
+&lt;a href="https://github.com/danielfrg/pelican-ipynb"&gt;https://github.com/danielfrg/pelican-ipynb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="command"></category><category term="linux"></category><category term="osx"></category><category term="win"></category></entry><entry><title>Creating a Static Blog with Pelican and hosting it on github user pages</title><link href="http://sb2gh.github.io/pelican-blog.html" rel="alternate"></link><published>2016-05-22T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2016-05-22:pelican-blog.html</id><summary type="html">
 &lt;p&gt;In this post we create a static blog using pelican with the pelican theme 'Elegant' and host the blog on github user pages&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
@@ -63,7 +107,7 @@ Done. Your new project is available at /Users/bm/webblog
 We are also going to add the different plugins that we want use such as the one for generating the table of content. We can get pelican plugins by cloning the following repo: &lt;a href="https://github.com/getpelican/pelican-plugins.git"&gt;https://github.com/getpelican/pelican-plugins.git&lt;/a&gt;.  We need to make sure that the plugins are in a folder named 'plugins' at the root of our blog.&lt;br/&gt;
 &lt;br&gt;
 Once the theme and plugins are installed at the root of our blog, we need to edit the &lt;em&gt;pelicanconf.py&lt;/em&gt; file to add the following information:&lt;/br&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+&lt;table class="table highlighttable table-striped table-hover"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
 4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'themes/elegant'&lt;/span&gt;
@@ -91,6 +135,10 @@ We can now look at the blog at &lt;em&gt;username.github.io&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="adding-jupyter-notebooks"&gt;Adding jupyter notebooks&lt;a class="headerlink" href="#adding-jupyter-notebooks" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It is straightforward to add a jupyter notebook thanks to a plugin found at &lt;a href="https://github.com/danielfrg/pelican-ipynb"&gt;https://github.com/danielfrg/pelican-ipynb&lt;/a&gt;.  The instructions are clear and simple.&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="adding-gist-to-blog"&gt;Adding gist to blog&lt;a class="headerlink" href="#adding-gist-to-blog" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Install pelican-gist: &lt;em&gt;pip install pelican-gist&lt;/em&gt;
+Update config file: &lt;em&gt;PLUGINS = [...'pelican_gist', ...]&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
 &lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
@@ -1194,7 +1242,7 @@ X_digits shape: (1797, 64)
     &lt;span class="c1"&gt;# set up the figure size in inches&lt;/span&gt;
     &lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.26&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
     &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;max_n&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
         &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_row&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_col&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt;
         &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bone&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="c1"&gt;# label the image with the target value&lt;/span&gt;
@@ -1213,7 +1261,7 @@ X_digits shape: (1797, 64)
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAEslJREFUeJzt3X+Q53V9H/DXS6ltTNjLhB8zjXsMtimWvUOroeZAtEL1
 EAjUWKioVMOlKmko3DUkGnRg6IiGjsgNtkDFWxKqCONWHa5eZGMhUeSO1gRTYE+oTiy3tIkHNre0
 nXS0vvvHbodkmmP6+t73ux/2fY/HDMMd+/x+Py/2w+d7Tz67+31lay0AAHr2gqEHAACYNIUHAOie
@@ -1341,7 +1389,7 @@ gg==
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;&lt;type 'numpy.ndarray'&gt;
+&lt;pre&gt;&lt;type 'numpy.ndarray'=""&gt;
 PCA shape:(1797, 10)
 [[  3.   21.1  12.3 -10.4   6.2  12.7  -8.6   2.   -4.  -10.7   7. ]
  [ -5.6  12.9  13.   -1.4   7.6   5.7  -1.5  -1.7   2.7   9.1   7. ]
@@ -1522,7 +1570,7 @@ PCA shape:(1797, 10)
  [  3.1  23.7   4.3  -2.7  10.    4.7  -9.8  -8.4 -10.2   0.8   7. ]
  [ -3.3  19.4  19.4  -7.1   8.9  17.8  -2.2   2.5   1.   -7.8   7. ]
  [ -3.9  18.7   1.2  -6.1  12.4   7.7  -8.8 -17.8  -3.5   6.3   7. ]]
-&lt;/pre&gt;
+&lt;/type&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1554,7 +1602,7 @@ PCA shape:(1797, 10)
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYkAAAEPCAYAAAC3NDh4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl8VNXd/993MpnMJJPJTgIEIgbZtwFKx4anibYhVZRC
 Ui0KdEQrKksAB4wWQdTwIEoEkVoMWhLQulSkRSsz8qhg8efTPuwoBVwoVVEUUEJIQrbv7487a2aG
 JJCIwP3wui/uPffcc753ZnK+57srIoIGDRo0aNAQCrrzTYAGDRo0aPjhQmMSGjRo0KAhLDQmoUGD
@@ -2523,7 +2571,7 @@ JaHRaDSakGglodFoNJqQ/H95VFPWIVGmrwAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAAEGCAYAAABhBk/MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAHa5JREFUeJzt3XmYXGWZ9/HvbWIwbIkhbJE4Yc2AIJsCwyKRzQEUUEEM
 yqaCoggqqDOyGBw3xlF0UATZF8mIDOsryCrbAEFJAoQExGAgbAGRQNgSCM/8USfYhnS670wnRT3v
 93NddeX0qd9zzulzV3XdfapTT5RSkCRJqtlb2n0AkiRJi5sNjyRJqp4NjyRJqp4NjyRJqp4NjyRJ
@@ -2694,7 +2742,7 @@ GviWliRJqp4NjyRJqp4NjyRJqp4NjyRJqp4NjyRJqt7/At9J2N+CBwssAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+&lt;img class="img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGoAAAB7CAYAAAAscmYrAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAGdJJREFUeJzt3X/c1fP9x/Hny3UpqZRUKq6kKLVaKpNR5EcsJD8yK0zm
 93c2IzNfjIsZN9vId2EsRaLYDNlkfmwrTDLKjxQqopRUKoV+uLy/f3w+Xc6uuTqfV31O53OuPe63
 23XrujrPz+vzuc7r+pzzOa9zzudYCEEAAAAAAAAovm2KvQEAAAAAAACIMKgBAAAAAADICAY1AAAA
@@ -3897,7 +3945,7 @@ and filter hundreds of thousands of rows with extreme responsiveness.  &lt;/li&g
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="API-&amp;amp;-Usage"&gt;API &amp; Usage&lt;a class="anchor-link" href="#API-&amp;amp;-Usage"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;API documentation is hosted on readthedocs: &lt;a href="http://qgrid.readthedocs.org/en/latest/"&gt;http://qgrid.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="API-&amp;amp;-Usage"&gt;API &amp;amp; Usage&lt;a class="anchor-link" href="#API-&amp;amp;-Usage"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;API documentation is hosted on readthedocs: &lt;a href="http://qgrid.readthedocs.org/en/latest/"&gt;http://qgrid.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The API documentation can also be accessed via the "?" operator in IPython.  To use the "?" operator, type the name of the function followed by "?" to see the documentation for that function, like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;qgrid.nbinstall?
 qgrid.show_grid?
@@ -3927,7 +3975,7 @@ qgrid.set_grid_options?&lt;/code&gt;&lt;/pre&gt;
 &lt;span class="c1"&gt;# Set this pandas option to prevent the grid from being too big&lt;/span&gt;
 &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'display.max_rows'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Get a pandas DataFrame containing the daily prices for the S&amp;P; 500 from 1/1/2011 - 1/1/2014&lt;/span&gt;
+&lt;span class="c1"&gt;# Get a pandas DataFrame containing the daily prices for the S&amp;amp;P; 500 from 1/1/2011 - 1/1/2014&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pandas.io.data&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_data_yahoo&lt;/span&gt;
 &lt;span class="n"&gt;spy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_data_yahoo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
     &lt;span class="n"&gt;symbols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'SPY'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  
@@ -3964,7 +4012,7 @@ qgrid.set_grid_options?&lt;/code&gt;&lt;/pre&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -4124,10 +4172,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e25e4c1f-3d10-44ae-910a-ec21907602d2"&gt;&lt;/div&gt;
+&lt;div id="9e65853f-acd6-4d38-9ef6-37bd39c56cea"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e25e4c1f-3d10-44ae-910a-ec21907602d2');
+var element = $('#9e65853f-acd6-4d38-9ef6-37bd39c56cea');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -4244,10 +4292,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ab06688a-6fa2-432e-9858-5d43e8293fc5"&gt;&lt;/div&gt;
+&lt;div id="6b54b57d-6234-469d-b914-b5a30661fc83"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ab06688a-6fa2-432e-9858-5d43e8293fc5');
+var element = $('#6b54b57d-6234-469d-b914-b5a30661fc83');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -4378,7 +4426,7 @@ function($){
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -4512,10 +4560,10 @@ if ($("#dg-css").length == 0){
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="49196214-026a-48de-a1af-92d9fa4c6fbd"&gt;&lt;/div&gt;
+&lt;div id="22c17114-6446-417a-b6d0-15159c545806"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#49196214-026a-48de-a1af-92d9fa4c6fbd');
+var element = $('#22c17114-6446-417a-b6d0-15159c545806');
 var path_dictionary = {
     jquery_drag: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/jquery.event.drag-2.2",
     slick_core: "https://cdn.rawgit.com/quantopian/qgrid/master/qgrid/qgridjs//lib/slick.core.2.2",
@@ -4602,7 +4650,7 @@ function($){
 &lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
+&lt;table border="1" class="table table-hover table-striped dataframe"&gt;
 &lt;thead&gt;
 &lt;tr style="text-align: right;"&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -4733,7 +4781,118 @@ function($){
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="table"></category><category term="sortable"></category></entry><entry><title>ORM and SQLAlchemy</title><link href="http://sb2gh.github.io/orm-alchemy.html" rel="alternate"></link><published>2015-01-11T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-11:orm-alchemy.html</id><summary type="html">
+</summary><category term="table"></category><category term="sortable"></category></entry><entry><title>Gists</title><link href="http://sb2gh.github.io/gists.html" rel="alternate"></link><published>2015-07-20T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-07-20:gists.html</id><summary type="html">
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="zip-files"&gt;Zip Files&lt;a class="headerlink" href="#zip-files" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/d1438c02205d154da8c4.js"&gt;&lt;/script&gt;
+[gist:id=d1438c02205d154da8c4]&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="loop-through-current-directory"&gt;Loop through current directory&lt;a class="headerlink" href="#loop-through-current-directory" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/a986bc01ea9e2e3338ee.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="list-current-processes"&gt;List current processes&lt;a class="headerlink" href="#list-current-processes" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/d77d20d92102f620872d.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="platform-info"&gt;Platform info&lt;a class="headerlink" href="#platform-info" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/ecb8eda9a1743ba929cc.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="download-yahoo-historical-prices"&gt;Download yahoo historical prices&lt;a class="headerlink" href="#download-yahoo-historical-prices" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/sb2gh/2979db2550323c37bf8d.js"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="gist"></category><category term="python"></category></entry><entry><title>Graphs in machine learning</title><link href="http://sb2gh.github.io/ml-graphs.html" rel="alternate"></link><published>2015-01-20T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-20:ml-graphs.html</id><summary type="html">
+&lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ brew install qt
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"/Applications/CMake.app/Contents/bin"&lt;/span&gt;:&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+$ pip install -U PySide
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DYLD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/lib/python2.7/site-packages/PySide
+$ pip install GraphViz
+$ pip install pydotplus
+$ brew install gts librsvg freetype
+$ brew install graphviz --with-bindings --with-freetype --with-librsvg --with-pangocairo
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="example-graph"&gt;Example graph&lt;a class="headerlink" href="#example-graph" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Created on Sun Dec 13 21:12:54 2015&lt;/span&gt;
+
+&lt;span class="sd"&gt;@author: ldierker&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DataFrame&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'qt4agg'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pylab&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.cross_validation&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.tree&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DecisionTreeClassifier&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;classification_report&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt;
+
+&lt;span class="c1"&gt;#os.chdir("C:\TREES")&lt;/span&gt;
+
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Data Engineering and Analysis&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="c1"&gt;#Load the dataset&lt;/span&gt;
+
+&lt;span class="n"&gt;AH_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"tree_addhealth.csv"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;data_clean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AH_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;data_clean&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtypes&lt;/span&gt;
+&lt;span class="n"&gt;data_clean&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Modeling and Prediction&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="c1"&gt;#Split into training and testing sets&lt;/span&gt;
+
+&lt;span class="n"&gt;predictors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_clean&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;'BIO_SEX'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'HISPANIC'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'WHITE'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'BLACK'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'NAMERICAN'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'ASIAN'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;'age'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'ALCEVR1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'ALCPROBS1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'marever1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'cocever1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'inhever1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'cigavail'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'DEP1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;'ESTEEM1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'VIOL1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'PASSIST'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'DEVIANT1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'SCHCONN1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'GPA1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'EXPEL1'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'FAMCONCT'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'PARACTV'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;'PARPRES'&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+
+&lt;span class="n"&gt;targets&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_clean&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TREG1&lt;/span&gt;
+
+&lt;span class="n"&gt;pred_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pred_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tar_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tar_test&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt;   &lt;span class="n"&gt;train_test_split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;predictors&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;targets&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_size&lt;/span&gt;&lt;span class="o"&gt;=.&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;pred_train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;shape&lt;/span&gt;
+&lt;span class="n"&gt;pred_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;shape&lt;/span&gt;
+&lt;span class="n"&gt;tar_train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;shape&lt;/span&gt;
+&lt;span class="n"&gt;tar_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;shape&lt;/span&gt;
+
+&lt;span class="c1"&gt;#Build model on training data&lt;/span&gt;
+&lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;DecisionTreeClassifier&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pred_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tar_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;predictions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pred_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;sklearn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;metrics&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tar_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;predictions&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sklearn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;metrics&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;accuracy_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tar_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;predictions&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;#Displaying the decision tree&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;
+&lt;span class="c1"&gt;#from StringIO import StringIO&lt;/span&gt;
+&lt;span class="c1"&gt;#from io import StringIO&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;StringIO&lt;/span&gt;
+&lt;span class="c1"&gt;#from StringIO import StringIO &lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StringIO&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getvalue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;export_graphviz&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getvalue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pydotplus&lt;/span&gt;
+&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pydotplus&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;graph_from_dot_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getvalue&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write_pdf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'graph.pdf'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_png&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;'finished'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;```&lt;/p&gt;</summary><category term="graphs"></category><category term="machine learning"></category><category term="python"></category></entry><entry><title>ORM and SQLAlchemy</title><link href="http://sb2gh.github.io/orm-alchemy.html" rel="alternate"></link><published>2015-01-11T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2015-01-11:orm-alchemy.html</id><summary type="html">
 &lt;h2 id="orm"&gt;ORM&lt;a class="headerlink" href="#orm" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;&lt;br/&gt;
 Object Relational Mapping is a programming technique to access and manipulate objects without having to consider how those objects relate to their data sources.
@@ -4782,7 +4941,154 @@ sqlite  &lt;/br&gt;&lt;/p&gt;
 &lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mysql+pymysql://cookiemonster:chocolatechip'&lt;/span&gt;
 &lt;span class="s1"&gt;'@mysql01.monster.internal/cookies'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pool_recycle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3600&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To be continued...&lt;/p&gt;</summary><category term="ORM"></category><category term="SQLAlchemy"></category></entry><entry><title>Virtualenv and virtualenvwrapper</title><link href="http://sb2gh.github.io/virtualenv.html" rel="alternate"></link><published>2014-05-15T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2014-05-15:virtualenv.html</id><summary type="html">
+&lt;p&gt;To be continued...&lt;/p&gt;</summary><category term="ORM"></category><category term="SQLAlchemy"></category></entry><entry><title>Scikit learn algorithm cheat sheet</title><link href="http://sb2gh.github.io/sklearn-algo-cs-v0.html" rel="alternate"></link><published>2014-07-23T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2014-07-12:sklearn-algo-cs-v0.html</id><summary type="html">
+&lt;h2 id="algo"&gt;Algo&lt;a class="headerlink" href="#algo" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="MyImage" class="img-responsive" src="http://sb2gh.github.io/images/ml_map.png"/&gt;&lt;/p&gt;</summary><category term="scikit"></category><category term="python"></category><category term="machine learning"></category></entry><entry><title>Website creation with Flask framework</title><link href="http://sb2gh.github.io/flask-v0.html" rel="alternate"></link><published>2013-01-20T22:00:00-05:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2013-01-20:flask-v0.html</id><summary type="html">
+&lt;h2 id="environment-set-up"&gt;Environment set-up&lt;a class="headerlink" href="#environment-set-up" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;First create a folder where we are going to have all our files for the application&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~ -  $ mkdir flsk
+bm@Work ~ -  $ cd flsk
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We then create a virtualenv that will contains all the necessary packages for flask.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bm@Work ~/flsk -  $ mkvirtualenv venv-flask
+bm@Work ~/flsk -  $ source ~/.virtualenvs/venv-flask/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure that PYTHONPATH is empty, otherwise the new python will use global module as well.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export PYTHONPATH=''
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now install flask&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(venv-flask) bm@Work ~/flsk -  $ pip install flask
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once flask is installed, when we enter &lt;code&gt;pip freeze&lt;/code&gt; we should see something like this:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;click==6.6
+Flask==0.11.1
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+Werkzeug==0.11.10
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="hello-world"&gt;Hello World!&lt;a class="headerlink" href="#hello-world" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We create the basic file app.py  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;'&amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt;'&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now launch our app: &lt;code&gt;python app.py&lt;/code&gt;&lt;br/&gt;
+We can see our website at: &lt;code&gt;localhost:5000&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;Notes:&lt;br/&gt;
+1. The default port is 5000&lt;br/&gt;
+2. In order to have the app seen outside the local computer we change &lt;code&gt;app.run(debug=True)&lt;/code&gt; by &lt;code&gt;app.run(host='0.0.0.0', port=5000, debug=True)&lt;/code&gt;.  If you are testing on another computer on the same network, in order to see the ip to put in the address bar, you can run ifconfig &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="template"&gt;Template&lt;a class="headerlink" href="#template" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;HTML templates should be created in order to dissociate models from views.  Flask will recognize these templates.  We just need to create a folder named &lt;code&gt;templates&lt;/code&gt; at the root of our app folder.&lt;br/&gt;
+We can then create for instance an index.html such as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;v0&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; paragraph&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Let's go to product details &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;url_for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'product'&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;here&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note:&lt;br/&gt;
+1. we have included a link in the body by using the function &lt;code&gt;url_for&lt;/code&gt;.  It will redirect to the page &lt;code&gt;product.html/0&lt;/code&gt;.&lt;br/&gt;
+2. We need to modify the include statement at the beginning to &lt;code&gt;from flask import Flask, render_template, url_for&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="forms"&gt;Forms&lt;a class="headerlink" href="#forms" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Form can be implemented in regular html but it is much easier to use the package &lt;code&gt;flask-wtf&lt;/code&gt;.  To install: &lt;code&gt;pip install flask-wtf&lt;/code&gt;.  Installing this will also help avoiding CSRF (cross-site-request-forgery) attacks.&lt;br/&gt;
+We need to update our included packages.  We will add the following includes (if we plan for example to use a radiofield and a submitfield):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask_wtf&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Form&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;wtforms.fields&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RadioField&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SubmitField&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="main-flask-decorators"&gt;Main Flask decorators&lt;a class="headerlink" href="#main-flask-decorators" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;route&lt;/code&gt;: registers function to handle routes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before_request&lt;/code&gt;: registers a function to run prior any request handlers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before_first_request&lt;/code&gt;: only once at the start&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;after_request&lt;/code&gt;: ...&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;teardown_request&lt;/code&gt;: after request handlers - even in case of exception thrown&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;errorhandler&lt;/code&gt;: custom error handler&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="context-application"&gt;Context Application&lt;a class="headerlink" href="#context-application" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;current_app&lt;br/&gt;
+g&lt;br/&gt;
+request&lt;br/&gt;
+session  &lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="helper-functions"&gt;Helper functions&lt;a class="headerlink" href="#helper-functions" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;url_for()&lt;/code&gt;: generates links to route or static files&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;render_template()&lt;/code&gt;: renders jinja2 templates&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;redirect()&lt;/code&gt;: generates a redirect response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jsonify()&lt;/code&gt;: generates a json response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;abort()&lt;/code&gt;: generates an error response&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flash()&lt;/code&gt;: registers a message to display&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="large-project"&gt;Large project&lt;a class="headerlink" href="#large-project" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In large project it is easier to have a similar to the following tree structure (see Miguel Greenberg):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── app/
+├── config.py
+├── manage.py
+├── requirements.txt
+└── tests/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Inside app folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;├── __init__.py
+├── emails.py
+├── models.py      # database models
+├── static/
+├── appblueprint/
+└── templates/
+    └── mainblueprinttemplate/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="bootstrap"&gt;Bootstrap&lt;a class="headerlink" href="#bootstrap" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;{% extends "bootstrap/base.html" %}&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="creating-links"&gt;Creating links&lt;a class="headerlink" href="#creating-links" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Routes created with @app.route -&amp;gt; &lt;code&gt;url_for('index')&lt;/code&gt;&lt;br/&gt;
+Blueprint routes -&amp;gt; &lt;code&gt;url_for('bluepr.index')
+Blueprint name not given in context -&amp;gt;&lt;/code&gt;url_for('.index')&lt;code&gt;Static files -&amp;gt;&lt;/code&gt;url_for('static', filename='style.css')`&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id="appendix"&gt;Appendix&lt;a class="headerlink" href="#appendix" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="problem-reload-server"&gt;Problem reload server&lt;a class="headerlink" href="#problem-reload-server" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Sometimes there are sockets still running, so we need to kill the server before relaunch. Assuming the server runs on port 5000: &lt;br/&gt;
+&lt;code&gt;lsof -n -i4TCP:5000 | grep LISTEN&lt;/code&gt;&lt;br/&gt;
+Get the process id (PID) and kill it, then relaunch:&lt;br/&gt;
+&lt;code&gt;kill -9 pidnumber&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="pip-install"&gt;Pip install&lt;a class="headerlink" href="#pip-install" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install flask
+pip install flask-script
+pip install flask-bootstrap
+pip install flask-sqlalchemy
+pip install flask-wtf
+pip install flask-login
+pip install flask-moment # extension that simplifies the use of moment.js to render dates
+pip install flask-pagedown # renders markdown live in the browser
+pip install markdown bleach
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;a class="headerlink" href="#references" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/mjhea0/awesome-flask"&gt;https://github.com/mjhea0/awesome-flask&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="flask"></category><category term="python"></category></entry><entry><title>Virtualenv and virtualenvwrapper</title><link href="http://sb2gh.github.io/virtualenv.html" rel="alternate"></link><published>2012-07-15T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2012-07-15:virtualenv.html</id><summary type="html">
 &lt;h2 id="virtualenv"&gt;Virtualenv&lt;a class="headerlink" href="#virtualenv" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Virtualenv allows the creation of different python projects with each different requirement. Some of these requirements can conflict between each other. Virtualenv solves these problems by allowing the user to create specific python environment for each project.&lt;br/&gt;
 Set up:&lt;/p&gt;
@@ -4816,4 +5122,12 @@ If install from requirements to continue if a package fails:
 &lt;p&gt;&lt;a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/"&gt;http://docs.python-guide.org/en/latest/dev/virtualenvs/&lt;/a&gt;
 &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;https://virtualenvwrapper.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
-&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry></feed>
+&lt;br/&gt;&lt;/br&gt;&lt;/p&gt;</summary><category term="virtualenv"></category><category term="virtualenvwrapper"></category></entry><entry><title>Random python</title><link href="http://sb2gh.github.io/python-v0.html" rel="alternate"></link><published>2011-07-23T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2011-04-22:python-v0.html</id><summary type="html">
+&lt;h2 id="basic-stuff"&gt;Basic stuff&lt;a class="headerlink" href="#basic-stuff" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h4 id="if-__name__-__main__"&gt;&lt;code&gt;if __name__ == "__main__"&lt;/code&gt;&lt;a class="headerlink" href="#if-__name__-__main__" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;It allows both a python script to be run on its own or be used as an import into another script. Indeed, if we import the python script and call for instance a function inside of that module, the variable &lt;code&gt;__name__&lt;/code&gt; will be equal to the module name.&lt;/p&gt;
+&lt;h2 id="class"&gt;Class&lt;a class="headerlink" href="#class" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;a variable with an underscore &lt;code&gt;_&lt;/code&gt; in front of it is private&lt;/p&gt;
+&lt;h2 id="super"&gt;Super&lt;a class="headerlink" href="#super" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="decorator"&gt;Decorator&lt;a class="headerlink" href="#decorator" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;</summary><category term="python"></category></entry><entry><title>Random R</title><link href="http://sb2gh.github.io/r-v0.html" rel="alternate"></link><published>2011-04-20T22:00:00-04:00</published><author><name>depuzzled</name></author><id>tag:sb2gh.github.io,2011-01-20:r-v0.html</id><summary type="html">
+&lt;h2 id="basic-stuff"&gt;Basic stuff&lt;a class="headerlink" href="#basic-stuff" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;</summary><category term="R"></category></entry></feed>
